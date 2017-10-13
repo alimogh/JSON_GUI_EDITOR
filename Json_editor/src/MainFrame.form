@@ -4,6 +4,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="JSON Editor"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -62,9 +63,9 @@
                       </Group>
                       <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextField1" max="32767" attributes="0"/>
-                          <Component id="jTextField2" max="32767" attributes="0"/>
-                          <Component id="jTextField3" pref="82" max="32767" attributes="0"/>
+                          <Component id="portTextField" max="32767" attributes="0"/>
+                          <Component id="clientportTextField" max="32767" attributes="0"/>
+                          <Component id="hostnameTextField" pref="82" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="407" max="32767" attributes="0"/>
                   </Group>
@@ -76,17 +77,17 @@
                       <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="portTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="clientportTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="hostnameTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="272" max="32767" attributes="0"/>
                   </Group>
@@ -99,9 +100,10 @@
                 <Property name="text" type="java.lang.String" value="port:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="portTextField">
               <Properties>
                 <Property name="text" type="java.lang.String" value="5000"/>
+                <Property name="name" type="java.lang.String" value="" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
@@ -109,7 +111,7 @@
                 <Property name="text" type="java.lang.String" value="clientport:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
+            <Component class="javax.swing.JTextField" name="clientportTextField">
               <Properties>
                 <Property name="text" type="java.lang.String" value="3000"/>
               </Properties>
@@ -119,7 +121,7 @@
                 <Property name="text" type="java.lang.String" value="hostname:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField3">
+            <Component class="javax.swing.JTextField" name="hostnameTextField">
               <Properties>
                 <Property name="text" type="java.lang.String" value="127.0.0.1"/>
               </Properties>
@@ -155,24 +157,24 @@
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jSpinner1" max="32767" attributes="0"/>
-                              <Component id="jSpinner2" max="32767" attributes="0"/>
-                              <Component id="jSpinner3" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jSpinner4" max="32767" attributes="0"/>
-                              <Component id="jSpinner5" max="32767" attributes="0"/>
-                              <Component id="jSpinner6" max="32767" attributes="0"/>
-                              <Component id="jSpinner7" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="botdelaySpinner" max="32767" attributes="0"/>
+                              <Component id="intervaltickerupdateSpinner" max="32767" attributes="0"/>
+                              <Component id="periodstoragetickerSpinner" alignment="0" max="32767" attributes="0"/>
+                              <Component id="timeoutbuySpinner" max="32767" attributes="0"/>
+                              <Component id="timeoutsellSpinner" max="32767" attributes="0"/>
+                              <Component id="tvgainSpinner" max="32767" attributes="0"/>
+                              <Component id="tvtradinglimitbuySpinner" min="-2" pref="62" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jSpinner8" min="-2" pref="61" max="-2" attributes="0"/>
+                          <Component id="tvtradinglimitsellSpinner" min="-2" pref="61" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="110" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox4" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox6" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox5" min="-2" max="-2" attributes="0"/>
+                          <Component id="tvprotectionCheckBox" min="-2" max="-2" attributes="0"/>
+                          <Component id="retrytvorderCheckBox" min="-2" max="-2" attributes="0"/>
+                          <Component id="watchmodeCheckBox" min="-2" max="-2" attributes="0"/>
+                          <Component id="debugCheckBox" min="-2" max="-2" attributes="0"/>
+                          <Component id="tvpyramidCheckBox" min="-2" max="-2" attributes="0"/>
+                          <Component id="verboseCheckBox" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
                   </Group>
@@ -183,49 +185,49 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botdelaySpinner" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="debugCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinner2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="intervaltickerupdateSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tvpyramidCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="23" pref="23" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinner3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="periodstoragetickerSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tvprotectionCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinner4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="timeoutbuySpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="retrytvorderCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinner5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="timeoutsellSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="verboseCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinner6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tvgainSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="watchmodeCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinner7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tvtradinglimitbuySpinner" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinner8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tvtradinglimitsellSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="111" max="32767" attributes="0"/>
                   </Group>
@@ -233,12 +235,12 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+            <Component class="javax.swing.JCheckBox" name="debugCheckBox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="debug"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner1">
+            <Component class="javax.swing.JSpinner" name="botdelaySpinner">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
@@ -250,35 +252,35 @@
                 <Property name="text" type="java.lang.String" value="interval_ticker_update:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner2">
+            <Component class="javax.swing.JSpinner" name="intervaltickerupdateSpinner">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
                 <Property name="text" type="java.lang.String" value="period_storage_ticker:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner3">
+            <Component class="javax.swing.JSpinner" name="periodstoragetickerSpinner">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
                 <Property name="text" type="java.lang.String" value="timeout_buy:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner4">
+            <Component class="javax.swing.JSpinner" name="timeoutbuySpinner">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
                 <Property name="text" type="java.lang.String" value="timeout_sell:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner5">
+            <Component class="javax.swing.JSpinner" name="timeoutsellSpinner">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
                 <Property name="text" type="java.lang.String" value="TV_GAIN:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner6">
+            <Component class="javax.swing.JSpinner" name="tvgainSpinner">
               <Properties>
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="0.0" numberType="java.lang.Float" stepSize="0.1" type="number"/>
@@ -290,19 +292,19 @@
                 <Property name="text" type="java.lang.String" value="TV_TRADING_LIMIT_BUY:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner7">
+            <Component class="javax.swing.JSpinner" name="tvtradinglimitbuySpinner">
               <Properties>
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="0.0" numberType="java.lang.Float" stepSize="0.001" type="number"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox2">
+            <Component class="javax.swing.JCheckBox" name="tvpyramidCheckBox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="TV_PYRAMID"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner8">
+            <Component class="javax.swing.JSpinner" name="tvtradinglimitsellSpinner">
               <Properties>
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="0.0" numberType="java.lang.Float" stepSize="0.001" type="number"/>
@@ -314,22 +316,22 @@
                 <Property name="text" type="java.lang.String" value="TV_TRADING_LIMIT_SELL:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox3">
+            <Component class="javax.swing.JCheckBox" name="tvprotectionCheckBox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="TV_PROTECTION"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox4">
+            <Component class="javax.swing.JCheckBox" name="retrytvorderCheckBox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="RETRY_TV_ORDER"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox5">
+            <Component class="javax.swing.JCheckBox" name="verboseCheckBox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="VERBOSE"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox6">
+            <Component class="javax.swing.JCheckBox" name="watchmodeCheckBox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="WATCH_MODE"/>
               </Properties>
@@ -372,7 +374,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable1">
+                <Component class="javax.swing.JTable" name="exchangesTable">
                   <Properties>
                     <Property name="autoCreateRowSorter" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
@@ -495,18 +497,18 @@
                       </Group>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jCheckBox7" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinner9" min="-2" pref="54" max="-2" attributes="0"/>
+                          <Component id="enabledCheckBox" min="-2" max="-2" attributes="0"/>
+                          <Component id="portSpinner" min="-2" pref="54" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jCheckBox8" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tlsCheckBox" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace pref="42" max="32767" attributes="0"/>
-                                  <Component id="jCheckBox9" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rejectunauthorizedCheckBox" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jTextField4" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField5" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField6" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField7" alignment="0" max="32767" attributes="0"/>
+                              <Component id="authorizedfromsTextField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="userTextField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="passwordTextField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="hostTextField" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="291" max="32767" attributes="0"/>
@@ -517,36 +519,36 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                      <Component id="jCheckBox7" min="-2" max="-2" attributes="0"/>
+                      <Component id="enabledCheckBox" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="authorizedfromsTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="userTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="passwordTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="hostTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinner9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="portSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jCheckBox8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tlsCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rejectunauthorizedCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="134" max="32767" attributes="0"/>
                   </Group>
@@ -554,7 +556,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox7">
+            <Component class="javax.swing.JCheckBox" name="enabledCheckBox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="enabled"/>
               </Properties>
@@ -564,7 +566,7 @@
                 <Property name="text" type="java.lang.String" value="authorized_froms:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4">
+            <Component class="javax.swing.JTextField" name="authorizedfromsTextField">
               <Properties>
                 <Property name="text" type="java.lang.String" value="[&quot;noreply@tradingview.com&quot;]"/>
               </Properties>
@@ -574,7 +576,7 @@
                 <Property name="text" type="java.lang.String" value="user:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField5">
+            <Component class="javax.swing.JTextField" name="userTextField">
               <Properties>
                 <Property name="text" type="java.lang.String" value="YOUR_EMAIL_HERE"/>
               </Properties>
@@ -584,7 +586,7 @@
                 <Property name="text" type="java.lang.String" value="password:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField6">
+            <Component class="javax.swing.JTextField" name="passwordTextField">
               <Properties>
                 <Property name="text" type="java.lang.String" value="YOUR_PASSWORD_HERE"/>
               </Properties>
@@ -594,7 +596,7 @@
                 <Property name="text" type="java.lang.String" value="host:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField7">
+            <Component class="javax.swing.JTextField" name="hostTextField">
               <Properties>
                 <Property name="text" type="java.lang.String" value="imap.gmail.com"/>
               </Properties>
@@ -604,14 +606,14 @@
                 <Property name="text" type="java.lang.String" value="port:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner9">
+            <Component class="javax.swing.JSpinner" name="portSpinner">
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox8">
+            <Component class="javax.swing.JCheckBox" name="tlsCheckBox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="tls"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox9">
+            <Component class="javax.swing.JCheckBox" name="rejectunauthorizedCheckBox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="rejectUnauthorized"/>
               </Properties>
@@ -655,7 +657,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable3">
+                <Component class="javax.swing.JTable" name="strategiesTable">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="30" rowCount="16">
@@ -1234,7 +1236,7 @@
                       <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                       <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                      <Component id="jTextField8" min="-2" pref="100" max="-2" attributes="0"/>
+                      <Component id="boughtpriceTextField" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace pref="372" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -1245,7 +1247,7 @@
                       <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="boughtpriceTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="360" max="32767" attributes="0"/>
                   </Group>
@@ -1258,7 +1260,7 @@
                 <Property name="text" type="java.lang.String" value="BOUGHT_PRICE:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField8">
+            <Component class="javax.swing.JTextField" name="boughtpriceTextField">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0.104744"/>
               </Properties>

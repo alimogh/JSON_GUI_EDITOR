@@ -8,6 +8,9 @@
  *
  * @author developer
  */
+
+import java.util.*;
+
 public class MainFrame extends javax.swing.JFrame {
 
     /**
@@ -29,75 +32,77 @@ public class MainFrame extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        portTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        clientportTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        hostnameTextField = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jSpinner1 = new javax.swing.JSpinner();
+        debugCheckBox = new javax.swing.JCheckBox();
+        botdelaySpinner = new javax.swing.JSpinner();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jSpinner2 = new javax.swing.JSpinner();
+        intervaltickerupdateSpinner = new javax.swing.JSpinner();
         jLabel6 = new javax.swing.JLabel();
-        jSpinner3 = new javax.swing.JSpinner();
+        periodstoragetickerSpinner = new javax.swing.JSpinner();
         jLabel7 = new javax.swing.JLabel();
-        jSpinner4 = new javax.swing.JSpinner();
+        timeoutbuySpinner = new javax.swing.JSpinner();
         jLabel8 = new javax.swing.JLabel();
-        jSpinner5 = new javax.swing.JSpinner();
+        timeoutsellSpinner = new javax.swing.JSpinner();
         jLabel9 = new javax.swing.JLabel();
-        jSpinner6 = new javax.swing.JSpinner();
+        tvgainSpinner = new javax.swing.JSpinner();
         jLabel10 = new javax.swing.JLabel();
-        jSpinner7 = new javax.swing.JSpinner();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jSpinner8 = new javax.swing.JSpinner();
+        tvtradinglimitbuySpinner = new javax.swing.JSpinner();
+        tvpyramidCheckBox = new javax.swing.JCheckBox();
+        tvtradinglimitsellSpinner = new javax.swing.JSpinner();
         jLabel11 = new javax.swing.JLabel();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
+        tvprotectionCheckBox = new javax.swing.JCheckBox();
+        retrytvorderCheckBox = new javax.swing.JCheckBox();
+        verboseCheckBox = new javax.swing.JCheckBox();
+        watchmodeCheckBox = new javax.swing.JCheckBox();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        exchangesTable = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
-        jCheckBox7 = new javax.swing.JCheckBox();
+        enabledCheckBox = new javax.swing.JCheckBox();
         jLabel12 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        authorizedfromsTextField = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        userTextField = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        passwordTextField = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        hostTextField = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jSpinner9 = new javax.swing.JSpinner();
-        jCheckBox8 = new javax.swing.JCheckBox();
-        jCheckBox9 = new javax.swing.JCheckBox();
+        portSpinner = new javax.swing.JSpinner();
+        tlsCheckBox = new javax.swing.JCheckBox();
+        rejectunauthorizedCheckBox = new javax.swing.JCheckBox();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        strategiesTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        boughtpriceTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JSON Editor");
+        setResizable(false);
 
         jLabel1.setText("port:");
 
-        jTextField1.setText("5000");
+        portTextField.setText("5000");
+        portTextField.setName(""); // NOI18N
 
         jLabel2.setText("clientport:");
 
-        jTextField2.setText("3000");
+        clientportTextField.setText("3000");
 
         jLabel3.setText("hostname:");
 
-        jTextField3.setText("127.0.0.1");
+        hostnameTextField.setText("127.0.0.1");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -111,9 +116,9 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addGap(60, 60, 60)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))
+                    .addComponent(portTextField)
+                    .addComponent(clientportTextField)
+                    .addComponent(hostnameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))
                 .addContainerGap(407, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -122,21 +127,21 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(64, 64, 64)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(portTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(clientportTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(hostnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(272, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("ws", jPanel2);
 
-        jCheckBox1.setText("debug");
+        debugCheckBox.setText("debug");
 
         jLabel4.setText("BOT_DELAY:");
 
@@ -150,25 +155,25 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel9.setText("TV_GAIN:");
 
-        jSpinner6.setModel(new javax.swing.SpinnerNumberModel(0.0f, null, null, 0.1f));
+        tvgainSpinner.setModel(new javax.swing.SpinnerNumberModel(0.0f, null, null, 0.1f));
 
         jLabel10.setText("TV_TRADING_LIMIT_BUY:");
 
-        jSpinner7.setModel(new javax.swing.SpinnerNumberModel(0.0f, null, null, 0.001f));
+        tvtradinglimitbuySpinner.setModel(new javax.swing.SpinnerNumberModel(0.0f, null, null, 0.001f));
 
-        jCheckBox2.setText("TV_PYRAMID");
+        tvpyramidCheckBox.setText("TV_PYRAMID");
 
-        jSpinner8.setModel(new javax.swing.SpinnerNumberModel(0.0f, null, null, 0.001f));
+        tvtradinglimitsellSpinner.setModel(new javax.swing.SpinnerNumberModel(0.0f, null, null, 0.001f));
 
         jLabel11.setText("TV_TRADING_LIMIT_SELL:");
 
-        jCheckBox3.setText("TV_PROTECTION");
+        tvprotectionCheckBox.setText("TV_PROTECTION");
 
-        jCheckBox4.setText("RETRY_TV_ORDER");
+        retrytvorderCheckBox.setText("RETRY_TV_ORDER");
 
-        jCheckBox5.setText("VERBOSE");
+        verboseCheckBox.setText("VERBOSE");
 
-        jCheckBox6.setText("WATCH_MODE");
+        watchmodeCheckBox.setText("WATCH_MODE");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -189,22 +194,22 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jSpinner1)
-                        .addComponent(jSpinner2)
-                        .addComponent(jSpinner3)
-                        .addComponent(jSpinner4)
-                        .addComponent(jSpinner5)
-                        .addComponent(jSpinner6)
-                        .addComponent(jSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSpinner8, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(botdelaySpinner)
+                        .addComponent(intervaltickerupdateSpinner)
+                        .addComponent(periodstoragetickerSpinner)
+                        .addComponent(timeoutbuySpinner)
+                        .addComponent(timeoutsellSpinner)
+                        .addComponent(tvgainSpinner)
+                        .addComponent(tvtradinglimitbuySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tvtradinglimitsellSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox3)
-                    .addComponent(jCheckBox4)
-                    .addComponent(jCheckBox6)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jCheckBox5))
+                    .addComponent(tvprotectionCheckBox)
+                    .addComponent(retrytvorderCheckBox)
+                    .addComponent(watchmodeCheckBox)
+                    .addComponent(debugCheckBox)
+                    .addComponent(tvpyramidCheckBox)
+                    .addComponent(verboseCheckBox))
                 .addGap(139, 139, 139))
         );
         jPanel3Layout.setVerticalGroup(
@@ -212,49 +217,49 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botdelaySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(jCheckBox1))
+                    .addComponent(debugCheckBox))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox2))
+                    .addComponent(intervaltickerupdateSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tvpyramidCheckBox))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox3))
+                    .addComponent(periodstoragetickerSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tvprotectionCheckBox))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox4))
+                    .addComponent(timeoutbuySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(retrytvorderCheckBox))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox5))
+                    .addComponent(timeoutsellSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(verboseCheckBox))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox6))
+                    .addComponent(tvgainSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(watchmodeCheckBox))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tvtradinglimitbuySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jSpinner8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tvtradinglimitsellSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(111, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("bot", jPanel3);
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        exchangesTable.setAutoCreateRowSorter(true);
+        exchangesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"bittrex", "YOUR_API_KEY_HERE", "YOUR_SECRET_KEY_HERE"},
                 {"cryptopia", "YOUR_API_KEY_HERE", "YOUR_SECRET_KEY_HERE"},
@@ -280,8 +285,8 @@ public class MainFrame extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setRowSelectionAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
+        exchangesTable.setRowSelectionAllowed(false);
+        jScrollPane1.setViewportView(exchangesTable);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -344,29 +349,29 @@ public class MainFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("pairs", jPanel5);
 
-        jCheckBox7.setText("enabled");
+        enabledCheckBox.setText("enabled");
 
         jLabel12.setText("authorized_froms:");
 
-        jTextField4.setText("[\"noreply@tradingview.com\"]");
+        authorizedfromsTextField.setText("[\"noreply@tradingview.com\"]");
 
         jLabel13.setText("user:");
 
-        jTextField5.setText("YOUR_EMAIL_HERE");
+        userTextField.setText("YOUR_EMAIL_HERE");
 
         jLabel14.setText("password:");
 
-        jTextField6.setText("YOUR_PASSWORD_HERE");
+        passwordTextField.setText("YOUR_PASSWORD_HERE");
 
         jLabel15.setText("host:");
 
-        jTextField7.setText("imap.gmail.com");
+        hostTextField.setText("imap.gmail.com");
 
         jLabel16.setText("port:");
 
-        jCheckBox8.setText("tls");
+        tlsCheckBox.setText("tls");
 
-        jCheckBox9.setText("rejectUnauthorized");
+        rejectunauthorizedCheckBox.setText("rejectUnauthorized");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -382,48 +387,48 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel12))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox7)
-                    .addComponent(jSpinner9, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enabledCheckBox)
+                    .addComponent(portSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addComponent(jCheckBox8)
+                            .addComponent(tlsCheckBox)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                            .addComponent(jCheckBox9))
-                        .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING)))
+                            .addComponent(rejectunauthorizedCheckBox))
+                        .addComponent(authorizedfromsTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(userTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(passwordTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(hostTextField, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addContainerGap(291, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
-                .addComponent(jCheckBox7)
+                .addComponent(enabledCheckBox)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(authorizedfromsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(userTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(hostTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(jSpinner9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(portSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox8)
-                    .addComponent(jCheckBox9))
+                    .addComponent(tlsCheckBox)
+                    .addComponent(rejectunauthorizedCheckBox))
                 .addContainerGap(134, Short.MAX_VALUE))
         );
 
@@ -431,7 +436,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jScrollPane3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        strategiesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"bb",  new Double(0.001),  new Double(15.0),  new Double(0.1),  new Double(0.6),  new Double(16.0),  new Double(8.0),  new Double(40.0),  new Double(40.0),  new Double(2.0),  new Double(50.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(2.0),  new Double(2.0),  new Double(5.0),  new Double(250.0),  new Double(1.0E-8),  new Double(1.0E-8),  new Double(0.12345678),  new Boolean(false), null,  new Double(60.0),  new Boolean(true),  new Double(1.0E-4),  new Double(1.0E-4)},
                 {"gain",  new Double(0.001),  new Double(15.0),  new Double(0.1),  new Double(0.6),  new Double(16.0),  new Double(8.0),  new Double(40.0),  new Double(40.0),  new Double(2.0),  new Double(50.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(2.0),  new Double(2.0),  new Double(5.0),  new Double(250.0),  new Double(1.0E-8),  new Double(1.0E-8),  new Double(0.12345678), null, null,  new Double(60.0),  new Boolean(true),  new Double(1.0E-4),  new Double(1.0E-4)},
@@ -469,8 +474,8 @@ public class MainFrame extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable3.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jScrollPane3.setViewportView(jTable3);
+        strategiesTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jScrollPane3.setViewportView(strategiesTable);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -489,7 +494,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel17.setText("BOUGHT_PRICE:");
 
-        jTextField8.setText("0.104744");
+        boughtpriceTextField.setText("0.104744");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -499,7 +504,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(70, 70, 70)
                 .addComponent(jLabel17)
                 .addGap(45, 45, 45)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(boughtpriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(372, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -508,7 +513,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(69, 69, 69)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boughtpriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(360, Short.MAX_VALUE))
         );
 
@@ -566,15 +571,16 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JCheckBox jCheckBox9;
+    private javax.swing.JTextField authorizedfromsTextField;
+    private javax.swing.JSpinner botdelaySpinner;
+    private javax.swing.JTextField boughtpriceTextField;
+    private javax.swing.JTextField clientportTextField;
+    private javax.swing.JCheckBox debugCheckBox;
+    private javax.swing.JCheckBox enabledCheckBox;
+    private javax.swing.JTable exchangesTable;
+    private javax.swing.JTextField hostTextField;
+    private javax.swing.JTextField hostnameTextField;
+    private javax.swing.JSpinner intervaltickerupdateSpinner;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -602,26 +608,27 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JSpinner jSpinner3;
-    private javax.swing.JSpinner jSpinner4;
-    private javax.swing.JSpinner jSpinner5;
-    private javax.swing.JSpinner jSpinner6;
-    private javax.swing.JSpinner jSpinner7;
-    private javax.swing.JSpinner jSpinner8;
-    private javax.swing.JSpinner jSpinner9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField passwordTextField;
+    private javax.swing.JSpinner periodstoragetickerSpinner;
+    private javax.swing.JSpinner portSpinner;
+    private javax.swing.JTextField portTextField;
+    private javax.swing.JCheckBox rejectunauthorizedCheckBox;
+    private javax.swing.JCheckBox retrytvorderCheckBox;
+    private javax.swing.JTable strategiesTable;
+    private javax.swing.JSpinner timeoutbuySpinner;
+    private javax.swing.JSpinner timeoutsellSpinner;
+    private javax.swing.JCheckBox tlsCheckBox;
+    private javax.swing.JSpinner tvgainSpinner;
+    private javax.swing.JCheckBox tvprotectionCheckBox;
+    private javax.swing.JCheckBox tvpyramidCheckBox;
+    private javax.swing.JSpinner tvtradinglimitbuySpinner;
+    private javax.swing.JSpinner tvtradinglimitsellSpinner;
+    private javax.swing.JTextField userTextField;
+    private javax.swing.JCheckBox verboseCheckBox;
+    private javax.swing.JCheckBox watchmodeCheckBox;
     // End of variables declaration//GEN-END:variables
+
+    private Map<String, Object> resultMap;
 }
