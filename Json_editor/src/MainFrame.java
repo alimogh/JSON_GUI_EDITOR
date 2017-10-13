@@ -28,109 +28,504 @@ public class MainFrame extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jSpinner1 = new javax.swing.JSpinner();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jSpinner2 = new javax.swing.JSpinner();
+        jLabel6 = new javax.swing.JLabel();
+        jSpinner3 = new javax.swing.JSpinner();
+        jLabel7 = new javax.swing.JLabel();
+        jSpinner4 = new javax.swing.JSpinner();
+        jLabel8 = new javax.swing.JLabel();
+        jSpinner5 = new javax.swing.JSpinner();
+        jLabel9 = new javax.swing.JLabel();
+        jSpinner6 = new javax.swing.JSpinner();
+        jLabel10 = new javax.swing.JLabel();
+        jSpinner7 = new javax.swing.JSpinner();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jSpinner8 = new javax.swing.JSpinner();
+        jLabel11 = new javax.swing.JLabel();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jCheckBox4 = new javax.swing.JCheckBox();
+        jCheckBox5 = new javax.swing.JCheckBox();
+        jCheckBox6 = new javax.swing.JCheckBox();
         jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
+        jCheckBox7 = new javax.swing.JCheckBox();
+        jLabel12 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jSpinner9 = new javax.swing.JSpinner();
+        jCheckBox8 = new javax.swing.JCheckBox();
+        jCheckBox9 = new javax.swing.JCheckBox();
         jPanel7 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JSON Editor");
+
+        jLabel1.setText("port:");
+
+        jTextField1.setText("5000");
+
+        jLabel2.setText("clientport:");
+
+        jTextField2.setText("3000");
+
+        jLabel3.setText("hostname:");
+
+        jTextField3.setText("127.0.0.1");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 615, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
+                .addGap(60, 60, 60)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField1)
+                    .addComponent(jTextField2)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))
+                .addContainerGap(407, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 387, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(272, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("bot", jPanel2);
+        jTabbedPane1.addTab("ws", jPanel2);
+
+        jCheckBox1.setText("debug");
+
+        jLabel4.setText("BOT_DELAY:");
+
+        jLabel5.setText("interval_ticker_update:");
+
+        jLabel6.setText("period_storage_ticker:");
+
+        jLabel7.setText("timeout_buy:");
+
+        jLabel8.setText("timeout_sell:");
+
+        jLabel9.setText("TV_GAIN:");
+
+        jSpinner6.setModel(new javax.swing.SpinnerNumberModel(0.0f, null, null, 0.1f));
+
+        jLabel10.setText("TV_TRADING_LIMIT_BUY:");
+
+        jSpinner7.setModel(new javax.swing.SpinnerNumberModel(0.0f, null, null, 0.001f));
+
+        jCheckBox2.setText("TV_PYRAMID");
+
+        jSpinner8.setModel(new javax.swing.SpinnerNumberModel(0.0f, null, null, 0.001f));
+
+        jLabel11.setText("TV_TRADING_LIMIT_SELL:");
+
+        jCheckBox3.setText("TV_PROTECTION");
+
+        jCheckBox4.setText("RETRY_TV_ORDER");
+
+        jCheckBox5.setText("VERBOSE");
+
+        jCheckBox6.setText("WATCH_MODE");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 615, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel8)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel7)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel11))
+                .addGap(39, 39, 39)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jSpinner1)
+                        .addComponent(jSpinner2)
+                        .addComponent(jSpinner3)
+                        .addComponent(jSpinner4)
+                        .addComponent(jSpinner5)
+                        .addComponent(jSpinner6)
+                        .addComponent(jSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSpinner8, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCheckBox3)
+                    .addComponent(jCheckBox4)
+                    .addComponent(jCheckBox6)
+                    .addComponent(jCheckBox1)
+                    .addComponent(jCheckBox2)
+                    .addComponent(jCheckBox5))
+                .addGap(139, 139, 139))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 387, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(jCheckBox1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox2))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox3))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox4))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jSpinner8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("exchanges", jPanel3);
+        jTabbedPane1.addTab("bot", jPanel3);
+
+        jTable1.setAutoCreateRowSorter(true);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"bittrex", "YOUR_API_KEY_HERE", "YOUR_SECRET_KEY_HERE"},
+                {"cryptopia", "YOUR_API_KEY_HERE", "YOUR_SECRET_KEY_HERE"},
+                {"kraken", "YOUR_API_KEY_HERE", "YOUR_SECRET_KEY_HERE"},
+                {"poloniex", "YOUR_API_KEY_HERE", "YOUR_SECRET_KEY_HERE"}
+            },
+            new String [] {
+                "Name", "key", "secret"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.setRowSelectionAllowed(false);
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 615, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 658, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 387, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        jTabbedPane1.addTab("pairs", jPanel4);
+        jTabbedPane1.addTab("exchanges", jPanel4);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"bittrex", "bb", "bb", "bb"},
+                {"poloniex", "bb", "bb", "bb"},
+                {"kraken", "bb", "bb", "bb"},
+                {"cryptopia", "bb", "bb", "bb"}
+            },
+            new String [] {
+                "Name", "BTC-LTC", "BTC-ETH", "BTC-XRP"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable2);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 615, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 387, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 22, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("imap_listener", jPanel5);
+        jTabbedPane1.addTab("pairs", jPanel5);
+
+        jCheckBox7.setText("enabled");
+
+        jLabel12.setText("authorized_froms:");
+
+        jTextField4.setText("[\"noreply@tradingview.com\"]");
+
+        jLabel13.setText("user:");
+
+        jTextField5.setText("YOUR_EMAIL_HERE");
+
+        jLabel14.setText("password:");
+
+        jTextField6.setText("YOUR_PASSWORD_HERE");
+
+        jLabel15.setText("host:");
+
+        jTextField7.setText("imap.gmail.com");
+
+        jLabel16.setText("port:");
+
+        jCheckBox8.setText("tls");
+
+        jCheckBox9.setText("rejectUnauthorized");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 615, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel12))
+                .addGap(34, 34, 34)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCheckBox7)
+                    .addComponent(jSpinner9, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addComponent(jCheckBox8)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                            .addComponent(jCheckBox9))
+                        .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addContainerGap(291, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 387, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jCheckBox7)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(jSpinner9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox8)
+                    .addComponent(jCheckBox9))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("strategies", jPanel6);
+        jTabbedPane1.addTab("imag_listener", jPanel6);
+
+        jScrollPane3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"bb",  new Double(0.001),  new Double(15.0),  new Double(0.1),  new Double(0.6),  new Double(16.0),  new Double(8.0),  new Double(40.0),  new Double(40.0),  new Double(2.0),  new Double(50.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(2.0),  new Double(2.0),  new Double(5.0),  new Double(250.0),  new Double(1.0E-8),  new Double(1.0E-8),  new Double(0.12345678),  new Boolean(false), null,  new Double(60.0),  new Boolean(true),  new Double(1.0E-4),  new Double(1.0E-4)},
+                {"gain",  new Double(0.001),  new Double(15.0),  new Double(0.1),  new Double(0.6),  new Double(16.0),  new Double(8.0),  new Double(40.0),  new Double(40.0),  new Double(2.0),  new Double(50.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(2.0),  new Double(2.0),  new Double(5.0),  new Double(250.0),  new Double(1.0E-8),  new Double(1.0E-8),  new Double(0.12345678), null, null,  new Double(60.0),  new Boolean(true),  new Double(1.0E-4),  new Double(1.0E-4)},
+                {"pp",  new Double(0.001),  new Double(15.0),  new Double(0.1),  new Double(0.6),  new Double(16.0),  new Double(8.0),  new Double(40.0),  new Double(40.0),  new Double(2.0),  new Double(50.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(2.0),  new Double(2.0),  new Double(5.0),  new Double(250.0),  new Double(1.0E-8),  new Double(1.0E-8),  new Double(0.12345678), null, null,  new Double(60.0),  new Boolean(true),  new Double(1.0E-4),  new Double(1.0E-4)},
+                {"strepgain",  new Double(0.001),  new Double(15.0),  new Double(0.1),  new Double(0.6),  new Double(16.0),  new Double(8.0),  new Double(40.0),  new Double(40.0),  new Double(2.0),  new Double(50.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(2.0),  new Double(2.0),  new Double(5.0),  new Double(250.0),  new Double(1.0E-8),  new Double(1.0E-8),  new Double(0.12345678), null, null,  new Double(60.0),  new Boolean(true),  new Double(1.0E-4),  new Double(1.0E-4)},
+                {"bbgain",  new Double(0.001),  new Double(15.0),  new Double(0.1),  new Double(0.6),  new Double(16.0),  new Double(8.0),  new Double(40.0),  new Double(40.0),  new Double(2.0),  new Double(50.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(2.0),  new Double(2.0),  new Double(5.0),  new Double(250.0),  new Double(1.0E-8),  new Double(1.0E-8),  new Double(0.12345678), null, null,  new Double(60.0),  new Boolean(true),  new Double(1.0E-4),  new Double(1.0E-4)},
+                {"gainbb",  new Double(0.001),  new Double(15.0),  new Double(0.1),  new Double(0.6),  new Double(16.0),  new Double(8.0),  new Double(40.0),  new Double(40.0),  new Double(2.0),  new Double(50.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(2.0),  new Double(2.0),  new Double(5.0),  new Double(250.0),  new Double(1.0E-8),  new Double(1.0E-8),  new Double(0.12345678), null, null,  new Double(60.0),  new Boolean(true),  new Double(1.0E-4),  new Double(1.0E-4)},
+                {"bbstepgain",  new Double(0.001),  new Double(15.0),  new Double(0.1),  new Double(0.6),  new Double(16.0),  new Double(8.0),  new Double(40.0),  new Double(40.0),  new Double(2.0),  new Double(50.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(2.0),  new Double(2.0),  new Double(5.0),  new Double(250.0),  new Double(1.0E-8),  new Double(1.0E-8),  new Double(0.12345678), null, null,  new Double(60.0),  new Boolean(true),  new Double(1.0E-4),  new Double(1.0E-4)},
+                {"stepgainbb",  new Double(0.001),  new Double(15.0),  new Double(0.1),  new Double(0.6),  new Double(16.0),  new Double(8.0),  new Double(40.0),  new Double(40.0),  new Double(2.0),  new Double(50.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(2.0),  new Double(2.0),  new Double(5.0),  new Double(250.0),  new Double(1.0E-8),  new Double(1.0E-8),  new Double(0.12345678), null, null,  new Double(60.0),  new Boolean(true),  new Double(1.0E-4),  new Double(1.0E-4)},
+                {"bbpp",  new Double(0.001),  new Double(15.0),  new Double(0.1),  new Double(0.6),  new Double(16.0),  new Double(8.0),  new Double(40.0),  new Double(40.0),  new Double(2.0),  new Double(50.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(2.0),  new Double(2.0),  new Double(5.0),  new Double(250.0),  new Double(1.0E-8),  new Double(1.0E-8),  new Double(0.12345678), null, null,  new Double(60.0),  new Boolean(true),  new Double(1.0E-4),  new Double(1.0E-4)},
+                {"ppbb",  new Double(0.001),  new Double(15.0),  new Double(0.1),  new Double(0.6),  new Double(16.0),  new Double(8.0),  new Double(40.0),  new Double(40.0),  new Double(2.0),  new Double(50.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(2.0),  new Double(2.0),  new Double(5.0),  new Double(250.0),  new Double(1.0E-8),  new Double(1.0E-8),  new Double(0.12345678), null, null,  new Double(60.0),  new Boolean(true),  new Double(1.0E-4),  new Double(1.0E-4)},
+                {"gainstepgain",  new Double(0.001),  new Double(15.0),  new Double(0.1),  new Double(0.6),  new Double(16.0),  new Double(8.0),  new Double(40.0),  new Double(40.0),  new Double(2.0),  new Double(50.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(2.0),  new Double(2.0),  new Double(5.0),  new Double(250.0),  new Double(1.0E-8),  new Double(1.0E-8),  new Double(0.12345678), null, null,  new Double(60.0),  new Boolean(true),  new Double(1.0E-4),  new Double(1.0E-4)},
+                {"stepgaingain",  new Double(0.001),  new Double(15.0),  new Double(0.1),  new Double(0.6),  new Double(16.0),  new Double(8.0),  new Double(40.0),  new Double(40.0),  new Double(2.0),  new Double(50.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(2.0),  new Double(2.0),  new Double(5.0),  new Double(250.0),  new Double(1.0E-8),  new Double(1.0E-8),  new Double(0.12345678), null, null,  new Double(60.0),  new Boolean(true),  new Double(1.0E-4),  new Double(1.0E-4)},
+                {"gainpp",  new Double(0.001),  new Double(15.0),  new Double(0.1),  new Double(0.6),  new Double(16.0),  new Double(8.0),  new Double(40.0),  new Double(40.0),  new Double(2.0),  new Double(50.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(2.0),  new Double(2.0),  new Double(5.0),  new Double(250.0),  new Double(1.0E-8),  new Double(1.0E-8),  new Double(0.12345678), null, null,  new Double(60.0),  new Boolean(true),  new Double(1.0E-4),  new Double(1.0E-4)},
+                {"ppgain",  new Double(0.001),  new Double(15.0),  new Double(0.1),  new Double(0.6),  new Double(16.0),  new Double(8.0),  new Double(40.0),  new Double(40.0),  new Double(2.0),  new Double(50.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(2.0),  new Double(2.0),  new Double(5.0),  new Double(250.0),  new Double(1.0E-8),  new Double(1.0E-8),  new Double(0.12345678), null, null,  new Double(60.0),  new Boolean(true),  new Double(1.0E-4),  new Double(1.0E-4)},
+                {"stepgainpp",  new Double(0.001),  new Double(15.0),  new Double(0.1),  new Double(0.6),  new Double(16.0),  new Double(8.0),  new Double(40.0),  new Double(40.0),  new Double(2.0),  new Double(50.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(2.0),  new Double(2.0),  new Double(5.0),  new Double(250.0),  new Double(1.0E-8),  new Double(1.0E-8),  new Double(0.12345678), null, null,  new Double(60.0),  new Boolean(true),  new Double(1.0E-4),  new Double(1.0E-4)},
+                {"ppstepgain",  new Double(0.001),  new Double(15.0),  new Double(0.1),  new Double(0.6),  new Double(16.0),  new Double(8.0),  new Double(40.0),  new Double(40.0),  new Double(2.0),  new Double(50.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(0.6),  new Double(2.0),  new Double(70.0),  new Double(2.0),  new Double(2.0),  new Double(5.0),  new Double(250.0),  new Double(1.0E-8),  new Double(1.0E-8),  new Double(0.12345678), null, null,  new Double(60.0),  new Boolean(true),  new Double(1.0E-4),  new Double(1.0E-4)}
+            },
+            new String [] {
+                "Name", "TRADING_LIMIT", "PERIOD", "BUY_LEVEL", "GAIN", "EMA1", "EMA2", "HIGH_BB", "LOW_BB", "STDV", "SMAPERIOD", "BUYLVL1", "BUYLVL2", "BUYLVL3", "SELLLVL1", "SELLLVL2", "SELLLVL3", "BUYLVL", "SELLLVL", "LASTPOINTS", "AVGPOINTS", "AVGMINIMUM", "PP_BUY", "PP_SELL", "PANIC_SELL", "DOUBLE_UP", "STOP_LIMIT", "BUY_ENABLE", "MIN_VOLUME_TO_BUY", "MIN_VOLUME_TO_SELL"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Double.class, java.lang.Boolean.class, java.lang.Double.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable3.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jScrollPane3.setViewportView(jTable3);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 615, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 387, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("optionals", jPanel7);
+        jTabbedPane1.addTab("strategies", jPanel7);
+
+        jLabel17.setText("BOUGHT_PRICE:");
+
+        jTextField8.setText("0.104744");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jLabel17)
+                .addGap(45, 45, 45)
+                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(372, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(360, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("optionals", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
+
+        jTabbedPane1.getAccessibleContext().setAccessibleName("tab1");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -171,12 +566,62 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JCheckBox jCheckBox4;
+    private javax.swing.JCheckBox jCheckBox5;
+    private javax.swing.JCheckBox jCheckBox6;
+    private javax.swing.JCheckBox jCheckBox7;
+    private javax.swing.JCheckBox jCheckBox8;
+    private javax.swing.JCheckBox jCheckBox9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jSpinner2;
+    private javax.swing.JSpinner jSpinner3;
+    private javax.swing.JSpinner jSpinner4;
+    private javax.swing.JSpinner jSpinner5;
+    private javax.swing.JSpinner jSpinner6;
+    private javax.swing.JSpinner jSpinner7;
+    private javax.swing.JSpinner jSpinner8;
+    private javax.swing.JSpinner jSpinner9;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }

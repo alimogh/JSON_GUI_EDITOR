@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="JSON Editor"/>
@@ -24,29 +24,109 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" min="-2" pref="620" max="-2" attributes="0"/>
-              <EmptySpace pref="38" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" min="-2" pref="421" max="-2" attributes="0"/>
-              <EmptySpace pref="29" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jTabbedPane1" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="tab1"/>
+      </AccessibilityProperties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="jPanel2">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="ws">
+                <Property name="tabTitle" type="java.lang.String" value="ws"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jTextField1" max="32767" attributes="0"/>
+                          <Component id="jTextField2" max="32767" attributes="0"/>
+                          <Component id="jTextField3" pref="82" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="407" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="272" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="port:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="5000"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="clientport:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="3000"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="hostname:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="127.0.0.1"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel3">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="bot">
@@ -58,17 +138,205 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="615" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" max="32767" attributes="0"/>
+                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel6" alignment="1" min="-2" pref="112" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jSpinner1" max="32767" attributes="0"/>
+                              <Component id="jSpinner2" max="32767" attributes="0"/>
+                              <Component id="jSpinner3" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jSpinner4" max="32767" attributes="0"/>
+                              <Component id="jSpinner5" max="32767" attributes="0"/>
+                              <Component id="jSpinner6" max="32767" attributes="0"/>
+                              <Component id="jSpinner7" min="-2" pref="62" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jSpinner8" min="-2" pref="61" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="110" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox4" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox6" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox5" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="387" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinner2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="23" pref="23" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinner3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinner4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinner5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinner6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinner7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinner8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="111" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="debug"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinner1">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="BOT_DELAY:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="interval_ticker_update:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinner2">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel6">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="period_storage_ticker:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinner3">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel7">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="timeout_buy:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinner4">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel8">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="timeout_sell:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinner5">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel9">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="TV_GAIN:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinner6">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="0.0" numberType="java.lang.Float" stepSize="0.1" type="number"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel10">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="TV_TRADING_LIMIT_BUY:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinner7">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="0.0" numberType="java.lang.Float" stepSize="0.001" type="number"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="jCheckBox2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="TV_PYRAMID"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinner8">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="0.0" numberType="java.lang.Float" stepSize="0.001" type="number"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel11">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="TV_TRADING_LIMIT_SELL:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="jCheckBox3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="TV_PROTECTION"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="jCheckBox4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="RETRY_TV_ORDER"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="jCheckBox5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="VERBOSE"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="jCheckBox6">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="WATCH_MODE"/>
+              </Properties>
+            </Component>
+          </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel3">
+        <Container class="javax.swing.JPanel" name="jPanel4">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="exchanges">
@@ -80,17 +348,63 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="615" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" pref="658" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="387" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="jTable1">
+                  <Properties>
+                    <Property name="autoCreateRowSorter" type="boolean" value="true"/>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="3" rowCount="4">
+                        <Column editable="false" title="Name" type="java.lang.String">
+                          <Data value="bittrex"/>
+                          <Data value="cryptopia"/>
+                          <Data value="kraken"/>
+                          <Data value="poloniex"/>
+                        </Column>
+                        <Column editable="true" title="key" type="java.lang.String">
+                          <Data value="YOUR_API_KEY_HERE"/>
+                          <Data value="YOUR_API_KEY_HERE"/>
+                          <Data value="YOUR_API_KEY_HERE"/>
+                          <Data value="YOUR_API_KEY_HERE"/>
+                        </Column>
+                        <Column editable="true" title="secret" type="java.lang.String">
+                          <Data value="YOUR_SECRET_KEY_HERE"/>
+                          <Data value="YOUR_SECRET_KEY_HERE"/>
+                          <Data value="YOUR_SECRET_KEY_HERE"/>
+                          <Data value="YOUR_SECRET_KEY_HERE"/>
+                        </Column>
+                      </Table>
+                    </Property>
+                    <Property name="rowSelectionAllowed" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel4">
+        <Container class="javax.swing.JPanel" name="jPanel5">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="pairs">
@@ -102,21 +416,67 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="615" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" alignment="0" pref="668" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="387" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="22" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="jTable2">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="4" rowCount="4">
+                        <Column editable="false" title="Name" type="java.lang.String">
+                          <Data value="bittrex"/>
+                          <Data value="poloniex"/>
+                          <Data value="kraken"/>
+                          <Data value="cryptopia"/>
+                        </Column>
+                        <Column editable="true" title="BTC-LTC" type="java.lang.String">
+                          <Data value="bb"/>
+                          <Data value="bb"/>
+                          <Data value="bb"/>
+                          <Data value="bb"/>
+                        </Column>
+                        <Column editable="true" title="BTC-ETH" type="java.lang.String">
+                          <Data value="bb"/>
+                          <Data value="bb"/>
+                          <Data value="bb"/>
+                          <Data value="bb"/>
+                        </Column>
+                        <Column editable="true" title="BTC-XRP" type="java.lang.String">
+                          <Data value="bb"/>
+                          <Data value="bb"/>
+                          <Data value="bb"/>
+                          <Data value="bb"/>
+                        </Column>
+                      </Table>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel5">
+        <Container class="javax.swing.JPanel" name="jPanel6">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="imap_listener">
-                <Property name="tabTitle" type="java.lang.String" value="imap_listener"/>
+              <JTabbedPaneConstraints tabName="imag_listener">
+                <Property name="tabTitle" type="java.lang.String" value="imag_listener"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -124,17 +484,141 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="615" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jCheckBox7" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinner9" min="-2" pref="54" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jCheckBox8" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="42" max="32767" attributes="0"/>
+                                  <Component id="jCheckBox9" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jTextField4" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextField5" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextField6" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextField7" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="291" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="387" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <Component id="jCheckBox7" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinner9" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jCheckBox8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox9" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="134" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JCheckBox" name="jCheckBox7">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="enabled"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel12">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="authorized_froms:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="[&quot;noreply@tradingview.com&quot;]"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel13">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="user:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="YOUR_EMAIL_HERE"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel14">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="password:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField6">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="YOUR_PASSWORD_HERE"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel15">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="host:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField7">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="imap.gmail.com"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel16">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="port:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinner9">
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="jCheckBox8">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="tls"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="jCheckBox9">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="rejectUnauthorized"/>
+              </Properties>
+            </Component>
+          </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel6">
+        <Container class="javax.swing.JPanel" name="jPanel7">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="strategies">
@@ -146,17 +630,595 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="615" max="32767" attributes="0"/>
+                  <Component id="jScrollPane3" alignment="0" pref="668" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="387" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+              <Properties>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Default Cursor"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="jTable3">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="30" rowCount="16">
+                        <Column editable="false" title="Name" type="java.lang.String">
+                          <Data value="bb"/>
+                          <Data value="gain"/>
+                          <Data value="pp"/>
+                          <Data value="strepgain"/>
+                          <Data value="bbgain"/>
+                          <Data value="gainbb"/>
+                          <Data value="bbstepgain"/>
+                          <Data value="stepgainbb"/>
+                          <Data value="bbpp"/>
+                          <Data value="ppbb"/>
+                          <Data value="gainstepgain"/>
+                          <Data value="stepgaingain"/>
+                          <Data value="gainpp"/>
+                          <Data value="ppgain"/>
+                          <Data value="stepgainpp"/>
+                          <Data value="ppstepgain"/>
+                        </Column>
+                        <Column editable="true" title="TRADING_LIMIT" type="java.lang.Double">
+                          <Data value="0.001"/>
+                          <Data value="0.001"/>
+                          <Data value="0.001"/>
+                          <Data value="0.001"/>
+                          <Data value="0.001"/>
+                          <Data value="0.001"/>
+                          <Data value="0.001"/>
+                          <Data value="0.001"/>
+                          <Data value="0.001"/>
+                          <Data value="0.001"/>
+                          <Data value="0.001"/>
+                          <Data value="0.001"/>
+                          <Data value="0.001"/>
+                          <Data value="0.001"/>
+                          <Data value="0.001"/>
+                          <Data value="0.001"/>
+                        </Column>
+                        <Column editable="true" title="PERIOD" type="java.lang.Double">
+                          <Data value="15.0"/>
+                          <Data value="15.0"/>
+                          <Data value="15.0"/>
+                          <Data value="15.0"/>
+                          <Data value="15.0"/>
+                          <Data value="15.0"/>
+                          <Data value="15.0"/>
+                          <Data value="15.0"/>
+                          <Data value="15.0"/>
+                          <Data value="15.0"/>
+                          <Data value="15.0"/>
+                          <Data value="15.0"/>
+                          <Data value="15.0"/>
+                          <Data value="15.0"/>
+                          <Data value="15.0"/>
+                          <Data value="15.0"/>
+                        </Column>
+                        <Column editable="true" title="BUY_LEVEL" type="java.lang.Double">
+                          <Data value="0.1"/>
+                          <Data value="0.1"/>
+                          <Data value="0.1"/>
+                          <Data value="0.1"/>
+                          <Data value="0.1"/>
+                          <Data value="0.1"/>
+                          <Data value="0.1"/>
+                          <Data value="0.1"/>
+                          <Data value="0.1"/>
+                          <Data value="0.1"/>
+                          <Data value="0.1"/>
+                          <Data value="0.1"/>
+                          <Data value="0.1"/>
+                          <Data value="0.1"/>
+                          <Data value="0.1"/>
+                          <Data value="0.1"/>
+                        </Column>
+                        <Column editable="true" title="GAIN" type="java.lang.Double">
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                        </Column>
+                        <Column editable="true" title="EMA1" type="java.lang.Double">
+                          <Data value="16.0"/>
+                          <Data value="16.0"/>
+                          <Data value="16.0"/>
+                          <Data value="16.0"/>
+                          <Data value="16.0"/>
+                          <Data value="16.0"/>
+                          <Data value="16.0"/>
+                          <Data value="16.0"/>
+                          <Data value="16.0"/>
+                          <Data value="16.0"/>
+                          <Data value="16.0"/>
+                          <Data value="16.0"/>
+                          <Data value="16.0"/>
+                          <Data value="16.0"/>
+                          <Data value="16.0"/>
+                          <Data value="16.0"/>
+                        </Column>
+                        <Column editable="true" title="EMA2" type="java.lang.Double">
+                          <Data value="8.0"/>
+                          <Data value="8.0"/>
+                          <Data value="8.0"/>
+                          <Data value="8.0"/>
+                          <Data value="8.0"/>
+                          <Data value="8.0"/>
+                          <Data value="8.0"/>
+                          <Data value="8.0"/>
+                          <Data value="8.0"/>
+                          <Data value="8.0"/>
+                          <Data value="8.0"/>
+                          <Data value="8.0"/>
+                          <Data value="8.0"/>
+                          <Data value="8.0"/>
+                          <Data value="8.0"/>
+                          <Data value="8.0"/>
+                        </Column>
+                        <Column editable="true" title="HIGH_BB" type="java.lang.Double">
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                        </Column>
+                        <Column editable="true" title="LOW_BB" type="java.lang.Double">
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                          <Data value="40.0"/>
+                        </Column>
+                        <Column editable="true" title="STDV" type="java.lang.Double">
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                        </Column>
+                        <Column editable="true" title="SMAPERIOD" type="java.lang.Double">
+                          <Data value="50.0"/>
+                          <Data value="50.0"/>
+                          <Data value="50.0"/>
+                          <Data value="50.0"/>
+                          <Data value="50.0"/>
+                          <Data value="50.0"/>
+                          <Data value="50.0"/>
+                          <Data value="50.0"/>
+                          <Data value="50.0"/>
+                          <Data value="50.0"/>
+                          <Data value="50.0"/>
+                          <Data value="50.0"/>
+                          <Data value="50.0"/>
+                          <Data value="50.0"/>
+                          <Data value="50.0"/>
+                          <Data value="50.0"/>
+                        </Column>
+                        <Column editable="true" title="BUYLVL1" type="java.lang.Double">
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                        </Column>
+                        <Column editable="true" title="BUYLVL2" type="java.lang.Double">
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                        </Column>
+                        <Column editable="true" title="BUYLVL3" type="java.lang.Double">
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                        </Column>
+                        <Column editable="true" title="SELLLVL1" type="java.lang.Double">
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                          <Data value="0.6"/>
+                        </Column>
+                        <Column editable="true" title="SELLLVL2" type="java.lang.Double">
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                        </Column>
+                        <Column editable="true" title="SELLLVL3" type="java.lang.Double">
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                          <Data value="70.0"/>
+                        </Column>
+                        <Column editable="true" title="BUYLVL" type="java.lang.Double">
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                        </Column>
+                        <Column editable="true" title="SELLLVL" type="java.lang.Double">
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                          <Data value="2.0"/>
+                        </Column>
+                        <Column editable="true" title="LASTPOINTS" type="java.lang.Double">
+                          <Data value="5.0"/>
+                          <Data value="5.0"/>
+                          <Data value="5.0"/>
+                          <Data value="5.0"/>
+                          <Data value="5.0"/>
+                          <Data value="5.0"/>
+                          <Data value="5.0"/>
+                          <Data value="5.0"/>
+                          <Data value="5.0"/>
+                          <Data value="5.0"/>
+                          <Data value="5.0"/>
+                          <Data value="5.0"/>
+                          <Data value="5.0"/>
+                          <Data value="5.0"/>
+                          <Data value="5.0"/>
+                          <Data value="5.0"/>
+                        </Column>
+                        <Column editable="true" title="AVGPOINTS" type="java.lang.Double">
+                          <Data value="250.0"/>
+                          <Data value="250.0"/>
+                          <Data value="250.0"/>
+                          <Data value="250.0"/>
+                          <Data value="250.0"/>
+                          <Data value="250.0"/>
+                          <Data value="250.0"/>
+                          <Data value="250.0"/>
+                          <Data value="250.0"/>
+                          <Data value="250.0"/>
+                          <Data value="250.0"/>
+                          <Data value="250.0"/>
+                          <Data value="250.0"/>
+                          <Data value="250.0"/>
+                          <Data value="250.0"/>
+                          <Data value="250.0"/>
+                        </Column>
+                        <Column editable="true" title="AVGMINIMUM" type="java.lang.Double">
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                        </Column>
+                        <Column editable="true" title="PP_BUY" type="java.lang.Double">
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                          <Data value="1.0E-8"/>
+                        </Column>
+                        <Column editable="true" title="PP_SELL" type="java.lang.Double">
+                          <Data value="0.12345678"/>
+                          <Data value="0.12345678"/>
+                          <Data value="0.12345678"/>
+                          <Data value="0.12345678"/>
+                          <Data value="0.12345678"/>
+                          <Data value="0.12345678"/>
+                          <Data value="0.12345678"/>
+                          <Data value="0.12345678"/>
+                          <Data value="0.12345678"/>
+                          <Data value="0.12345678"/>
+                          <Data value="0.12345678"/>
+                          <Data value="0.12345678"/>
+                          <Data value="0.12345678"/>
+                          <Data value="0.12345678"/>
+                          <Data value="0.12345678"/>
+                          <Data value="0.12345678"/>
+                        </Column>
+                        <Column editable="true" title="PANIC_SELL" type="java.lang.Boolean">
+                          <Data value="false"/>
+                          <Data value="null"/>
+                          <Data value="null"/>
+                          <Data value="null"/>
+                          <Data value="null"/>
+                          <Data value="null"/>
+                          <Data value="null"/>
+                          <Data value="null"/>
+                          <Data value="null"/>
+                          <Data value="null"/>
+                          <Data value="null"/>
+                          <Data value="null"/>
+                          <Data value="null"/>
+                          <Data value="null"/>
+                          <Data value="null"/>
+                          <Data value="null"/>
+                        </Column>
+                        <Column editable="true" title="DOUBLE_UP" type="java.lang.Boolean"/>
+                        <Column editable="true" title="STOP_LIMIT" type="java.lang.Double">
+                          <Data value="60.0"/>
+                          <Data value="60.0"/>
+                          <Data value="60.0"/>
+                          <Data value="60.0"/>
+                          <Data value="60.0"/>
+                          <Data value="60.0"/>
+                          <Data value="60.0"/>
+                          <Data value="60.0"/>
+                          <Data value="60.0"/>
+                          <Data value="60.0"/>
+                          <Data value="60.0"/>
+                          <Data value="60.0"/>
+                          <Data value="60.0"/>
+                          <Data value="60.0"/>
+                          <Data value="60.0"/>
+                          <Data value="60.0"/>
+                        </Column>
+                        <Column editable="true" title="BUY_ENABLE" type="java.lang.Boolean">
+                          <Data value="true"/>
+                          <Data value="true"/>
+                          <Data value="true"/>
+                          <Data value="true"/>
+                          <Data value="true"/>
+                          <Data value="true"/>
+                          <Data value="true"/>
+                          <Data value="true"/>
+                          <Data value="true"/>
+                          <Data value="true"/>
+                          <Data value="true"/>
+                          <Data value="true"/>
+                          <Data value="true"/>
+                          <Data value="true"/>
+                          <Data value="true"/>
+                          <Data value="true"/>
+                        </Column>
+                        <Column editable="true" title="MIN_VOLUME_TO_BUY" type="java.lang.Double">
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                        </Column>
+                        <Column editable="true" title="MIN_VOLUME_TO_SELL" type="java.lang.Double">
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                          <Data value="1.0E-4"/>
+                        </Column>
+                      </Table>
+                    </Property>
+                    <Property name="autoResizeMode" type="int" value="0"/>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel7">
+        <Container class="javax.swing.JPanel" name="jPanel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="optionals">
@@ -168,15 +1230,40 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="615" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                      <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="jTextField8" min="-2" pref="100" max="-2" attributes="0"/>
+                      <EmptySpace pref="372" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="387" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="360" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel17">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="BOUGHT_PRICE:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField8">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="0.104744"/>
+              </Properties>
+            </Component>
+          </SubComponents>
         </Container>
       </SubComponents>
     </Container>
