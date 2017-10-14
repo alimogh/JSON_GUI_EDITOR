@@ -587,8 +587,8 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("strategies", jPanel7);
@@ -798,7 +798,7 @@ public class MainFrame extends javax.swing.JFrame {
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             String filename = chooser.getSelectedFile().getPath();
             try (BufferedWriter out = new BufferedWriter(new FileWriter(filename))) {
-                out.write(beaufifyJSON(getJsonString()));
+                out.write(getJsonString());
             }
             catch (IOException e) {
 
