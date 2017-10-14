@@ -11,6 +11,7 @@
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import java.util.*;
 import javax.swing.JTree;
 import jdk.nashorn.internal.parser.JSONParser;
@@ -602,6 +603,7 @@ public class MainFrame extends javax.swing.JFrame {
                 MainFrame mainFrame = new MainFrame();
                 mainFrame.setVisible(true);
                 System.out.println(mainFrame.getJsonString());
+                mainFrame.readJSON(mainFrame.getJsonString());
             }
         });
     }
@@ -615,13 +617,13 @@ public class MainFrame extends javax.swing.JFrame {
     public HashMap<String, Object> getMap() {
         HashMap<String, Object> resultMap = new HashMap<>();
         
-        resultMap.put("ws", getMap_ws());
-        resultMap.put("bot", getMap_bot());
-        resultMap.put("exchanges", getMap_exchanges());
-        resultMap.put("pairs", getMap_pairs());
-        resultMap.put("imap_listener", getMap_imap_listener());
-        resultMap.put("strategies", getMap_strategies());
-        resultMap.put("optionals", getMap_optioanal());
+        resultMap.put("ws", (Object)getMap_ws());
+        resultMap.put("bot", (Object)getMap_bot());
+        resultMap.put("exchanges", (Object)getMap_exchanges());
+        resultMap.put("pairs", (Object)getMap_pairs());
+        resultMap.put("imap_listener", (Object)getMap_imap_listener());
+        resultMap.put("strategies", (Object)getMap_strategies());
+        resultMap.put("optionals", (Object)getMap_optioanal());
         
         return resultMap;
     }
@@ -629,9 +631,9 @@ public class MainFrame extends javax.swing.JFrame {
     public HashMap<String, Object> getMap_ws() {
         HashMap<String, Object> wsMap = new HashMap<>();
         
-        wsMap.put("port", port_wsSpinner.getValue());
-        wsMap.put("clientport", clientportSpinner.getValue());
-        wsMap.put("hostname", hostnameTextField.getText());
+        wsMap.put("port", (Object)port_wsSpinner.getValue());
+        wsMap.put("clientport", (Object)clientportSpinner.getValue());
+        wsMap.put("hostname", (Object)hostnameTextField.getText());
         
         return wsMap;
     }
@@ -639,20 +641,20 @@ public class MainFrame extends javax.swing.JFrame {
     public HashMap<String, Object> getMap_bot() {
         HashMap<String, Object> botMap = new HashMap<>();
         
-        botMap.put("debug", debugCheckBox.isSelected());
-        botMap.put("BOT_DELAY", botdelaySpinner.getValue());
-        botMap.put("interval_ticker_update", intervaltickerupdateSpinner.getValue());
-        botMap.put("period_storage_ticker", periodstoragetickerSpinner.getValue());
-        botMap.put("timeout_buy", timeoutbuySpinner.getValue());
-        botMap.put("timeout_sell", timeoutsellSpinner.getValue());
-        botMap.put("TV_GAIN", tvgainSpinner.getValue());
-        botMap.put("TV_TRADING_LIMIT_BUY", tvtradinglimitbuySpinner.getValue());
-        botMap.put("TV_PYRAMID", tvpyramidCheckBox.isSelected());
-        botMap.put("TV_TRADING_LIMIT_SELL", tvtradinglimitsellSpinner.getValue());
-        botMap.put("TV_PROTECTION", tvprotectionCheckBox.isSelected());
-        botMap.put("RETRY_TV_ORDER", retrytvorderCheckBox.isSelected());
-        botMap.put("VERBOSE", verboseCheckBox.isSelected());
-        botMap.put("WATCH_MODE", watchmodeCheckBox.isSelected());
+        botMap.put("debug", (Object)debugCheckBox.isSelected());
+        botMap.put("BOT_DELAY", (Object)botdelaySpinner.getValue());
+        botMap.put("interval_ticker_update", (Object)intervaltickerupdateSpinner.getValue());
+        botMap.put("period_storage_ticker", (Object)periodstoragetickerSpinner.getValue());
+        botMap.put("timeout_buy", (Object)timeoutbuySpinner.getValue());
+        botMap.put("timeout_sell", (Object)timeoutsellSpinner.getValue());
+        botMap.put("TV_GAIN", (Object)tvgainSpinner.getValue());
+        botMap.put("TV_TRADING_LIMIT_BUY", (Object)tvtradinglimitbuySpinner.getValue());
+        botMap.put("TV_PYRAMID", (Object)tvpyramidCheckBox.isSelected());
+        botMap.put("TV_TRADING_LIMIT_SELL", (Object)tvtradinglimitsellSpinner.getValue());
+        botMap.put("TV_PROTECTION", (Object)tvprotectionCheckBox.isSelected());
+        botMap.put("RETRY_TV_ORDER", (Object)retrytvorderCheckBox.isSelected());
+        botMap.put("VERBOSE", (Object)verboseCheckBox.isSelected());
+        botMap.put("WATCH_MODE", (Object)watchmodeCheckBox.isSelected());
         
         return botMap;
     }
@@ -661,24 +663,24 @@ public class MainFrame extends javax.swing.JFrame {
         HashMap<String, Object> exchangesMap = new HashMap<>();
         
         HashMap<String, Object> bittrexMap = new HashMap<>();
-        bittrexMap.put("key", exchangesTable.getValueAt(0, 1));
-        bittrexMap.put("secret", exchangesTable.getValueAt(0, 2));
-        exchangesMap.put("bittrex", bittrexMap);
+        bittrexMap.put("key", (Object)exchangesTable.getValueAt(0, 1));
+        bittrexMap.put("secret", (Object)exchangesTable.getValueAt(0, 2));
+        exchangesMap.put("bittrex", (Object)bittrexMap);
         
         HashMap<String, Object> cryptopiaMap = new HashMap<>();
-        cryptopiaMap.put("key", exchangesTable.getValueAt(0, 1));
-        cryptopiaMap.put("secret", exchangesTable.getValueAt(0, 2));
-        exchangesMap.put("cryptopia", cryptopiaMap);
+        cryptopiaMap.put("key", (Object)exchangesTable.getValueAt(0, 1));
+        cryptopiaMap.put("secret", (Object)exchangesTable.getValueAt(0, 2));
+        exchangesMap.put("cryptopia", (Object)cryptopiaMap);
         
         HashMap<String, Object> krakenMap = new HashMap<>();
-        krakenMap.put("key", exchangesTable.getValueAt(0, 1));
-        krakenMap.put("secret", exchangesTable.getValueAt(0, 2));
-        exchangesMap.put("kraken", krakenMap);
+        krakenMap.put("key", (Object)exchangesTable.getValueAt(0, 1));
+        krakenMap.put("secret", (Object)exchangesTable.getValueAt(0, 2));
+        exchangesMap.put("kraken", (Object)krakenMap);
         
         HashMap<String, Object> poloniexMap = new HashMap<>();
-        poloniexMap.put("key", exchangesTable.getValueAt(0, 1));
-        poloniexMap.put("secret", exchangesTable.getValueAt(0, 2));
-        exchangesMap.put("poloniex", poloniexMap);
+        poloniexMap.put("key", (Object)exchangesTable.getValueAt(0, 1));
+        poloniexMap.put("secret", (Object)exchangesTable.getValueAt(0, 2));
+        exchangesMap.put("poloniex", (Object)poloniexMap);
         
         return exchangesMap;
     }
@@ -705,13 +707,13 @@ public class MainFrame extends javax.swing.JFrame {
                 else {
                     String strKey = strLeaf.substring(0, seperator).trim();
                     String strValue = strLeaf.substring(seperator);
-                    nodeMap.put(strKey, strValue);
+                    nodeMap.put(strKey, (Object)strValue);
                 }
             }
             else {
                 String strKey = child.toString();
                 HashMap<String, Object> mapValue = parseMap(child);
-                nodeMap.put(strKey, mapValue);
+                nodeMap.put(strKey, (Object)mapValue);
             }
         }
         
@@ -721,17 +723,17 @@ public class MainFrame extends javax.swing.JFrame {
     public HashMap<String, Object> getMap_imap_listener() {
         HashMap<String, Object> imap_listenerMap = new HashMap<>();
         
-        imap_listenerMap.put("enabled", enabledCheckBox.isSelected());
-        imap_listenerMap.put("authorized_froms", authorizedfromsTextField.getText());
-        imap_listenerMap.put("user", userTextField.getText());
-        imap_listenerMap.put("password", passwordTextField.getText());
-        imap_listenerMap.put("host", hostTextField.getText());
-        imap_listenerMap.put("port", port_imaglistenerSpinner.getValue());
-        imap_listenerMap.put("tls", tlsCheckBox.isSelected());
+        imap_listenerMap.put("enabled", (Object)enabledCheckBox.isSelected());
+        imap_listenerMap.put("authorized_froms", (Object)authorizedfromsTextField.getText());
+        imap_listenerMap.put("user", (Object)userTextField.getText());
+        imap_listenerMap.put("password", (Object)passwordTextField.getText());
+        imap_listenerMap.put("host", (Object)hostTextField.getText());
+        imap_listenerMap.put("port", (Object)port_imaglistenerSpinner.getValue());
+        imap_listenerMap.put("tls", (Object)tlsCheckBox.isSelected());
         if(tlsCheckBox.isSelected()) {
             HashMap<String, Object> tlsOptionsMap = new HashMap<>();
-            tlsOptionsMap.put("rejectUnauthorized", rejectunauthorizedCheckBox.isSelected());
-            imap_listenerMap.put("tlsOptions", tlsOptionsMap);
+            tlsOptionsMap.put("rejectUnauthorized", (Object)rejectunauthorizedCheckBox.isSelected());
+            imap_listenerMap.put("tlsOptions", (Object)tlsOptionsMap);
         }
         
         return imap_listenerMap;
@@ -743,37 +745,37 @@ public class MainFrame extends javax.swing.JFrame {
         int nCount = strategiesTable.getRowCount();
         for(int i = 0; i < nCount; i ++) {
             HashMap<String, Object> itemMap = new HashMap<>();
-            itemMap.put("TRADING_LIMIT", strategiesTable.getValueAt(i, 1));
-            itemMap.put("PERIOD", strategiesTable.getValueAt(i, 2));
-            itemMap.put("BUY_LEVEL", strategiesTable.getValueAt(i, 3));
-            itemMap.put("GAIN", strategiesTable.getValueAt(i, 4));
-            itemMap.put("EMA1", strategiesTable.getValueAt(i, 5));
-            itemMap.put("EMA2", strategiesTable.getValueAt(i, 6));
-            itemMap.put("HIGH_BB", strategiesTable.getValueAt(i, 7));
-            itemMap.put("LOW_BB", strategiesTable.getValueAt(i, 8));
-            itemMap.put("STDV", strategiesTable.getValueAt(i, 9));
-            itemMap.put("SMAPERIOD", strategiesTable.getValueAt(i, 10));
-            itemMap.put("BUYLVL1", strategiesTable.getValueAt(i, 11));
-            itemMap.put("BUYLVL2", strategiesTable.getValueAt(i, 12));
-            itemMap.put("BUYLVL3", strategiesTable.getValueAt(i, 13));
-            itemMap.put("SELLLVL1", strategiesTable.getValueAt(i, 14));
-            itemMap.put("SELLLVL2", strategiesTable.getValueAt(i, 15));
-            itemMap.put("SELLLVL3", strategiesTable.getValueAt(i, 16));
-            itemMap.put("BUYLVL", strategiesTable.getValueAt(i, 17));
-            itemMap.put("SELLLVL", strategiesTable.getValueAt(i, 18));
-            itemMap.put("LASTPOINTS", strategiesTable.getValueAt(i, 19));
-            itemMap.put("AVGPOINTS", strategiesTable.getValueAt(i, 20));
-            itemMap.put("AVGMINIMUM", strategiesTable.getValueAt(i, 21));
-            itemMap.put("PP_BUY", strategiesTable.getValueAt(i, 22));
-            itemMap.put("PP_SELL", strategiesTable.getValueAt(i, 23));
-            itemMap.put("PANIC_SELL", strategiesTable.getValueAt(i, 24));
-            itemMap.put("DOUBLE_UP", strategiesTable.getValueAt(i, 25));
-            itemMap.put("STOP_LIMIT", strategiesTable.getValueAt(i, 26));
-            itemMap.put("BUY_ENABLED", strategiesTable.getValueAt(i, 27));
-            itemMap.put("MIN_VOLUME_TO_BUY", strategiesTable.getValueAt(i, 28));
-            itemMap.put("MIN_VOLUME_TO_SELL", strategiesTable.getValueAt(i, 29));
+            itemMap.put("TRADING_LIMIT", (Object)strategiesTable.getValueAt(i, 1));
+            itemMap.put("PERIOD", (Object)strategiesTable.getValueAt(i, 2));
+            itemMap.put("BUY_LEVEL", (Object)strategiesTable.getValueAt(i, 3));
+            itemMap.put("GAIN", (Object)strategiesTable.getValueAt(i, 4));
+            itemMap.put("EMA1", (Object)strategiesTable.getValueAt(i, 5));
+            itemMap.put("EMA2", (Object)strategiesTable.getValueAt(i, 6));
+            itemMap.put("HIGH_BB", (Object)strategiesTable.getValueAt(i, 7));
+            itemMap.put("LOW_BB", (Object)strategiesTable.getValueAt(i, 8));
+            itemMap.put("STDV", (Object)strategiesTable.getValueAt(i, 9));
+            itemMap.put("SMAPERIOD", (Object)strategiesTable.getValueAt(i, 10));
+            itemMap.put("BUYLVL1", (Object)strategiesTable.getValueAt(i, 11));
+            itemMap.put("BUYLVL2", (Object)strategiesTable.getValueAt(i, 12));
+            itemMap.put("BUYLVL3", (Object)strategiesTable.getValueAt(i, 13));
+            itemMap.put("SELLLVL1", (Object)strategiesTable.getValueAt(i, 14));
+            itemMap.put("SELLLVL2", (Object)strategiesTable.getValueAt(i, 15));
+            itemMap.put("SELLLVL3", (Object)strategiesTable.getValueAt(i, 16));
+            itemMap.put("BUYLVL", (Object)strategiesTable.getValueAt(i, 17));
+            itemMap.put("SELLLVL", (Object)strategiesTable.getValueAt(i, 18));
+            itemMap.put("LASTPOINTS", (Object)strategiesTable.getValueAt(i, 19));
+            itemMap.put("AVGPOINTS", (Object)strategiesTable.getValueAt(i, 20));
+            itemMap.put("AVGMINIMUM", (Object)strategiesTable.getValueAt(i, 21));
+            itemMap.put("PP_BUY", (Object)strategiesTable.getValueAt(i, 22));
+            itemMap.put("PP_SELL", (Object)strategiesTable.getValueAt(i, 23));
+            itemMap.put("PANIC_SELL", (Object)strategiesTable.getValueAt(i, 24));
+            itemMap.put("DOUBLE_UP", (Object)strategiesTable.getValueAt(i, 25));
+            itemMap.put("STOP_LIMIT", (Object)strategiesTable.getValueAt(i, 26));
+            itemMap.put("BUY_ENABLED", (Object)strategiesTable.getValueAt(i, 27));
+            itemMap.put("MIN_VOLUME_TO_BUY", (Object)strategiesTable.getValueAt(i, 28));
+            itemMap.put("MIN_VOLUME_TO_SELL", (Object)strategiesTable.getValueAt(i, 29));
             String strName = (String)strategiesTable.getValueAt(i, 0);
-            strategiesMap.put(strName, itemMap);
+            strategiesMap.put(strName, (Object)itemMap);
         }
         
         return strategiesMap;
@@ -783,10 +785,27 @@ public class MainFrame extends javax.swing.JFrame {
         HashMap<String, Object> optionalMap = new HashMap<>();
         
         HashMap<String, Object> toOverrideMap = new HashMap<>();
-        toOverrideMap.put("BOUGHT_PRICE", Integer.parseInt(boughtpriceTextField.getText()));
+        
+        double bought_price;
+        try {
+            bought_price = Integer.parseInt(boughtpriceTextField.getText());
+        }
+        catch(Exception e) {
+            bought_price = 0;
+        }
+        
+        toOverrideMap.put("BOUGHT_PRICE", bought_price);
         optionalMap.put("toOverride", (Object)toOverrideMap);
         
         return optionalMap;
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////
+    
+    public void readJSON(String jsonString) {
+        Gson gsonObj = new Gson();
+        java.lang.reflect.Type type = new TypeToken<HashMap<String, Object>>(){}.getType();
+        HashMap<String, Object> hashMap = gsonObj.fromJson(jsonString, type);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
