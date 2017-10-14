@@ -397,7 +397,7 @@ public class MainFrame extends javax.swing.JFrame {
         pairsTree.setRootVisible(false);
         jScrollPane4.setViewportView(pairsTree);
 
-        jButton2.setText("Add Child");
+        jButton2.setText("Add Override Child");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -428,7 +428,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jButton2)
-                        .addGap(18, 18, 18)
+                        .addGap(27, 27, 27)
                         .addComponent(jButton3)
                         .addGap(18, 18, 18)
                         .addComponent(jButton4)
@@ -656,7 +656,9 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         DefaultMutableTreeNode node = (DefaultMutableTreeNode)pairsTree.getLastSelectedPathComponent();
-        node.add(new DefaultMutableTreeNode(""));
+        DefaultMutableTreeNode overrideNode = new DefaultMutableTreeNode("override");
+        overrideNode.add(new DefaultMutableTreeNode("key:value"));
+        node.add(overrideNode);
         
         DefaultTreeModel model = (DefaultTreeModel)pairsTree.getModel();
         DefaultMutableTreeNode root = (DefaultMutableTreeNode)model.getRoot();
@@ -667,7 +669,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         DefaultMutableTreeNode node = (DefaultMutableTreeNode)pairsTree.getLastSelectedPathComponent();
         DefaultMutableTreeNode parent = (DefaultMutableTreeNode)node.getParent();
-        parent.add(new DefaultMutableTreeNode(""));
+        parent.add(new DefaultMutableTreeNode("key:value"));
         
         DefaultTreeModel model = (DefaultTreeModel)pairsTree.getModel();
         DefaultMutableTreeNode root = (DefaultMutableTreeNode)model.getRoot();
@@ -735,7 +737,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
     }
 
-    public String beaufifyJSON(String rawJson) {
+    public String beautifyJSON(String rawJson) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             Object object = objectMapper.readValue(rawJson, Object.class);
@@ -809,7 +811,7 @@ public class MainFrame extends javax.swing.JFrame {
     
     public String getJsonString() {
         Gson gsonObj = new Gson();
-        String jsonString = gsonObj.toJson(getMap());
+        String jsonString = beautifyJSON(gsonObj.toJson(getMap()));
         return jsonString;
     }
     
