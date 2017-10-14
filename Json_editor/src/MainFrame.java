@@ -32,6 +32,8 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeSelectionModel;
 import jdk.nashorn.internal.parser.JSONParser;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.ObjectWriter;
 
 public class MainFrame extends javax.swing.JFrame {
 
@@ -729,13 +731,26 @@ public class MainFrame extends javax.swing.JFrame {
             public void run() {
                 MainFrame mainFrame = new MainFrame();
                 mainFrame.setVisible(true);
-                System.out.println(mainFrame.getJsonString());
-                mainFrame.readJSON(mainFrame.getJsonString());
                 mainFrame.readFile();
             }
         });
     }
 
+    public String beaufifyJSON(String rawJson) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            Object object = objectMapper.readValue(rawJson, Object.class);
+            ObjectWriter objectWriter = objectMapper.writer().withDefaultPrettyPrinter();
+            /* Get the formatted json */
+            String formattedJSON = objectWriter.writeValueAsString(object);
+            return formattedJSON;
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        return "{}";
+    }
+    
+    
     public void readFile() {
         String content;
         try {
@@ -783,7 +798,7 @@ public class MainFrame extends javax.swing.JFrame {
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             String filename = chooser.getSelectedFile().getPath();
             try (BufferedWriter out = new BufferedWriter(new FileWriter(filename))) {
-                out.write(getJsonString());
+                out.write(beaufifyJSON(getJsonString()));
             }
             catch (IOException e) {
 
