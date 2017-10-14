@@ -11,9 +11,24 @@
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JTree;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 import jdk.nashorn.internal.parser.JSONParser;
 
 public class MainFrame extends javax.swing.JFrame {
@@ -604,10 +619,68 @@ public class MainFrame extends javax.swing.JFrame {
                 mainFrame.setVisible(true);
                 System.out.println(mainFrame.getJsonString());
                 mainFrame.readJSON(mainFrame.getJsonString());
+                mainFrame.readFile();
             }
         });
     }
 
+    public void readFile() {
+        String content;
+        try {
+            content = new String(Files.readAllBytes(Paths.get("config.js")));
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "Error occurred while import config.js");
+            return;
+        }
+        HashMap<String, Object> contentMap = readJSON(content);
+        
+        if (contentMap.containsKey("ws")) {
+            setMap_ws((LinkedTreeMap<String, Object>) contentMap.get("ws"));
+        }
+    
+        if (contentMap.containsKey("bot")) {
+            setMap_bot((LinkedTreeMap<String, Object>)contentMap.get("bot"));
+        }
+        
+        if (contentMap.containsKey("exchanges")) {
+            setMap_exchanges((LinkedTreeMap<String, Object>)contentMap.get("exchanges"));
+        }
+        
+        if (contentMap.containsKey("pairs")) {
+            setMap_pairs((LinkedTreeMap<String, Object>)contentMap.get("pairs"));
+        }
+        
+        if (contentMap.containsKey("imap_listener")) {
+            setMap_imap_listener((LinkedTreeMap<String, Object>)contentMap.get("imap_listener"));
+        }
+        
+        if (contentMap.containsKey("strategies")) {
+            setMap_strategies((LinkedTreeMap<String, Object>)contentMap.get("strategies"));
+        }
+        
+        if (contentMap.containsKey("optionals")) {
+            setMap_optionals((LinkedTreeMap<String, Object>)contentMap.get("optionals"));
+        }
+    }
+    
+    public void saveFile() {
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Text File(*.js,*.json,*.txt)", "js", "json", "txt");
+        chooser.setFileFilter(filter);
+        int returnVal = chooser.showSaveDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            String filename = chooser.getSelectedFile().getPath();
+            try (BufferedWriter out = new BufferedWriter(new FileWriter(filename))) {
+                out.write(getJsonString());
+            }
+            catch (IOException e) {
+
+            }
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////
+    
     public String getJsonString() {
         Gson gsonObj = new Gson();
         String jsonString = gsonObj.toJson(getMap());
@@ -617,13 +690,13 @@ public class MainFrame extends javax.swing.JFrame {
     public HashMap<String, Object> getMap() {
         HashMap<String, Object> resultMap = new HashMap<>();
         
-        resultMap.put("ws", (Object)getMap_ws());
-        resultMap.put("bot", (Object)getMap_bot());
-        resultMap.put("exchanges", (Object)getMap_exchanges());
-        resultMap.put("pairs", (Object)getMap_pairs());
-        resultMap.put("imap_listener", (Object)getMap_imap_listener());
-        resultMap.put("strategies", (Object)getMap_strategies());
-        resultMap.put("optionals", (Object)getMap_optioanal());
+        resultMap.put("ws", getMap_ws());
+        resultMap.put("bot", getMap_bot());
+        resultMap.put("exchanges", getMap_exchanges());
+        resultMap.put("pairs", getMap_pairs());
+        resultMap.put("imap_listener", getMap_imap_listener());
+        resultMap.put("strategies", getMap_strategies());
+        resultMap.put("optionals", getMap_optioanal());
         
         return resultMap;
     }
@@ -631,64 +704,175 @@ public class MainFrame extends javax.swing.JFrame {
     public HashMap<String, Object> getMap_ws() {
         HashMap<String, Object> wsMap = new HashMap<>();
         
-        wsMap.put("port", (Object)port_wsSpinner.getValue());
-        wsMap.put("clientport", (Object)clientportSpinner.getValue());
-        wsMap.put("hostname", (Object)hostnameTextField.getText());
+        wsMap.put("port", port_wsSpinner.getValue());
+        wsMap.put("clientport", clientportSpinner.getValue());
+        wsMap.put("hostname", hostnameTextField.getText());
         
         return wsMap;
+    }
+    
+    public void setMap_ws(LinkedTreeMap<String, Object> wsMap) {
+        if (wsMap.containsKey("port")) {
+            port_wsSpinner.setValue(wsMap.get("port"));
+        }
+        if (wsMap.containsKey("clientport")) {
+            clientportSpinner.setValue(wsMap.get("clientport"));
+        }
+        if (wsMap.containsKey("hostname")) {
+            hostnameTextField.setText((String)wsMap.get("hostname"));
+        }
     }
     
     public HashMap<String, Object> getMap_bot() {
         HashMap<String, Object> botMap = new HashMap<>();
         
-        botMap.put("debug", (Object)debugCheckBox.isSelected());
-        botMap.put("BOT_DELAY", (Object)botdelaySpinner.getValue());
-        botMap.put("interval_ticker_update", (Object)intervaltickerupdateSpinner.getValue());
-        botMap.put("period_storage_ticker", (Object)periodstoragetickerSpinner.getValue());
-        botMap.put("timeout_buy", (Object)timeoutbuySpinner.getValue());
-        botMap.put("timeout_sell", (Object)timeoutsellSpinner.getValue());
-        botMap.put("TV_GAIN", (Object)tvgainSpinner.getValue());
-        botMap.put("TV_TRADING_LIMIT_BUY", (Object)tvtradinglimitbuySpinner.getValue());
-        botMap.put("TV_PYRAMID", (Object)tvpyramidCheckBox.isSelected());
-        botMap.put("TV_TRADING_LIMIT_SELL", (Object)tvtradinglimitsellSpinner.getValue());
-        botMap.put("TV_PROTECTION", (Object)tvprotectionCheckBox.isSelected());
-        botMap.put("RETRY_TV_ORDER", (Object)retrytvorderCheckBox.isSelected());
-        botMap.put("VERBOSE", (Object)verboseCheckBox.isSelected());
-        botMap.put("WATCH_MODE", (Object)watchmodeCheckBox.isSelected());
+        botMap.put("debug", debugCheckBox.isSelected());
+        botMap.put("BOT_DELAY", botdelaySpinner.getValue());
+        botMap.put("interval_ticker_update", intervaltickerupdateSpinner.getValue());
+        botMap.put("period_storage_ticker", periodstoragetickerSpinner.getValue());
+        botMap.put("timeout_buy", timeoutbuySpinner.getValue());
+        botMap.put("timeout_sell", timeoutsellSpinner.getValue());
+        botMap.put("TV_GAIN", tvgainSpinner.getValue());
+        botMap.put("TV_TRADING_LIMIT_BUY", tvtradinglimitbuySpinner.getValue());
+        botMap.put("TV_PYRAMID", tvpyramidCheckBox.isSelected());
+        botMap.put("TV_TRADING_LIMIT_SELL", tvtradinglimitsellSpinner.getValue());
+        botMap.put("TV_PROTECTION", tvprotectionCheckBox.isSelected());
+        botMap.put("RETRY_TV_ORDER", retrytvorderCheckBox.isSelected());
+        botMap.put("VERBOSE", verboseCheckBox.isSelected());
+        botMap.put("WATCH_MODE", watchmodeCheckBox.isSelected());
         
         return botMap;
+    }
+    
+    public void setMap_bot(LinkedTreeMap<String, Object> botMap) {
+        if(botMap.containsKey("debug")) {
+            debugCheckBox.setSelected((boolean)botMap.get("debug"));
+        }
+        if(botMap.containsKey("BOT_DELAY")) {
+            botdelaySpinner.setValue(botMap.get("BOT_DELAY"));
+        }
+        if(botMap.containsKey("interval_ticker_update")) {
+            intervaltickerupdateSpinner.setValue(botMap.get("interval_ticker_update"));
+        }
+        if(botMap.containsKey("period_storage_ticker")) {
+            periodstoragetickerSpinner.setValue(botMap.get("period_storage_ticker"));
+        }
+        if(botMap.containsKey("timeout_buy")) {
+            timeoutbuySpinner.setValue(botMap.get("timeout_buy"));
+        }
+        if(botMap.containsKey("timeout_sell")) {
+            timeoutsellSpinner.setValue(botMap.get("timeout_sell"));
+        }
+        if(botMap.containsKey("TV_GAIN")) {
+            tvgainSpinner.setValue(botMap.get("TV_GAIN"));
+        }
+        if(botMap.containsKey("TV_TRADING_LIMIT_BUY")) {
+            tvtradinglimitbuySpinner.setValue(botMap.get("TV_TRADING_LIMIT_BUY"));
+        }
+        if(botMap.containsKey("TV_PYRAMID")) {
+            tvpyramidCheckBox.setSelected((boolean)botMap.get("TV_PYRAMID"));
+        }
+        if(botMap.containsKey("TV_TRADING_LIMIT_SELL")) {
+            tvtradinglimitsellSpinner.setValue(botMap.get("TV_TRADING_LIMIT_SELL"));
+        }
+        if(botMap.containsKey("TV_PROTECTION")) {
+            tvprotectionCheckBox.setSelected((boolean)botMap.get("TV_PROTECTION"));
+        }
+        if(botMap.containsKey("RETRY_TV_ORDER")) {
+            retrytvorderCheckBox.setSelected((boolean)botMap.get("RETRY_TV_ORDER"));
+        }
+        if(botMap.containsKey("VERBOSE")) {
+            verboseCheckBox.setSelected((boolean)botMap.get("VERBOSE"));
+        }
+        if(botMap.containsKey("WATCH_MODE")) {
+            watchmodeCheckBox.setSelected((boolean)botMap.get("WATCH_MODE"));
+        }
     }
     
     public HashMap<String, Object> getMap_exchanges() {
         HashMap<String, Object> exchangesMap = new HashMap<>();
         
         HashMap<String, Object> bittrexMap = new HashMap<>();
-        bittrexMap.put("key", (Object)exchangesTable.getValueAt(0, 1));
-        bittrexMap.put("secret", (Object)exchangesTable.getValueAt(0, 2));
-        exchangesMap.put("bittrex", (Object)bittrexMap);
+        bittrexMap.put("key", exchangesTable.getValueAt(0, 1));
+        bittrexMap.put("secret", exchangesTable.getValueAt(0, 2));
+        exchangesMap.put("bittrex", bittrexMap);
         
         HashMap<String, Object> cryptopiaMap = new HashMap<>();
-        cryptopiaMap.put("key", (Object)exchangesTable.getValueAt(0, 1));
-        cryptopiaMap.put("secret", (Object)exchangesTable.getValueAt(0, 2));
-        exchangesMap.put("cryptopia", (Object)cryptopiaMap);
+        cryptopiaMap.put("key", exchangesTable.getValueAt(1, 1));
+        cryptopiaMap.put("secret", exchangesTable.getValueAt(1, 2));
+        exchangesMap.put("cryptopia", cryptopiaMap);
         
         HashMap<String, Object> krakenMap = new HashMap<>();
-        krakenMap.put("key", (Object)exchangesTable.getValueAt(0, 1));
-        krakenMap.put("secret", (Object)exchangesTable.getValueAt(0, 2));
-        exchangesMap.put("kraken", (Object)krakenMap);
+        krakenMap.put("key", exchangesTable.getValueAt(2, 1));
+        krakenMap.put("secret", exchangesTable.getValueAt(2, 2));
+        exchangesMap.put("kraken", krakenMap);
         
         HashMap<String, Object> poloniexMap = new HashMap<>();
-        poloniexMap.put("key", (Object)exchangesTable.getValueAt(0, 1));
-        poloniexMap.put("secret", (Object)exchangesTable.getValueAt(0, 2));
-        exchangesMap.put("poloniex", (Object)poloniexMap);
+        poloniexMap.put("key", exchangesTable.getValueAt(3, 1));
+        poloniexMap.put("secret", exchangesTable.getValueAt(3, 2));
+        exchangesMap.put("poloniex", poloniexMap);
         
         return exchangesMap;
+    }
+    
+    public void setMap_exchanges(LinkedTreeMap<String, Object> exchangesMap) {
+        if (exchangesMap.containsKey("bittrex")) {
+            LinkedTreeMap<String, Object> bittrexMap = (LinkedTreeMap<String, Object>)exchangesMap.get("bittrex");
+            exchangesTable.setValueAt(bittrexMap.get("key"), 0, 1);
+            exchangesTable.setValueAt(bittrexMap.get("secret"), 0, 2);
+        }
+        if (exchangesMap.containsKey("cryptopia")) {
+            LinkedTreeMap<String, Object> cryptopiaMap = (LinkedTreeMap<String, Object>)exchangesMap.get("cryptopia");
+            exchangesTable.setValueAt(cryptopiaMap.get("key"), 1, 1);
+            exchangesTable.setValueAt(cryptopiaMap.get("secret"), 1, 2);
+        }
+        if (exchangesMap.containsKey("kraken")) {
+            LinkedTreeMap<String, Object> krakenMap = (LinkedTreeMap<String, Object>)exchangesMap.get("kraken");
+            exchangesTable.setValueAt(krakenMap.get("key"), 2, 1);
+            exchangesTable.setValueAt(krakenMap.get("secret"), 2, 2);
+        }
+        if (exchangesMap.containsKey("poloniex")) {
+            LinkedTreeMap<String, Object> poloniexMap = (LinkedTreeMap<String, Object>)exchangesMap.get("poloniex");
+            exchangesTable.setValueAt(poloniexMap.get("key"), 0, 1);
+            exchangesTable.setValueAt(poloniexMap.get("secret"), 0, 2);
+        }
     }
     
     public HashMap<String, Object> getMap_pairs() {
         javax.swing.tree.TreeNode root = (javax.swing.tree.TreeNode)pairsTree.getModel().getRoot();
         HashMap<String, Object> pairsMap = parseMap(root);
         return pairsMap;
+    }
+    
+    public void setMap_pairs(LinkedTreeMap<String, Object> pairsMap) {
+        DefaultTreeModel model = (DefaultTreeModel)pairsTree.getModel();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode)model.getRoot();
+        root.removeAllChildren();
+        Set<String> keys = pairsMap.keySet();
+        for (String key : keys) {
+            DefaultMutableTreeNode childNode;
+            childNode = parseNode((LinkedTreeMap<String, Object>) pairsMap.get(key), key);
+            root.add(childNode);
+        }
+        model.reload(root);
+        pairsTree.setVisible(false);
+        pairsTree.setVisible(true);
+    }
+    
+    public DefaultMutableTreeNode parseNode(LinkedTreeMap<String, Object> map, String label) {
+        DefaultMutableTreeNode node = new DefaultMutableTreeNode(label);
+        Set<String> keys = map.keySet();
+        for(String key : keys) {
+            DefaultMutableTreeNode childNode;
+            try {
+                childNode = parseNode((LinkedTreeMap<String, Object>) map.get(key), key);
+            }
+            catch(Exception e) {
+                childNode = new DefaultMutableTreeNode(key + (String)map.get(key));
+            }
+            node.add(childNode);
+        }
+        return node;
     }
     
     private HashMap<String, Object> parseMap(javax.swing.tree.TreeNode node) {
@@ -707,13 +891,13 @@ public class MainFrame extends javax.swing.JFrame {
                 else {
                     String strKey = strLeaf.substring(0, seperator).trim();
                     String strValue = strLeaf.substring(seperator);
-                    nodeMap.put(strKey, (Object)strValue);
+                    nodeMap.put(strKey, strValue);
                 }
             }
             else {
                 String strKey = child.toString();
                 HashMap<String, Object> mapValue = parseMap(child);
-                nodeMap.put(strKey, (Object)mapValue);
+                nodeMap.put(strKey, mapValue);
             }
         }
         
@@ -723,20 +907,32 @@ public class MainFrame extends javax.swing.JFrame {
     public HashMap<String, Object> getMap_imap_listener() {
         HashMap<String, Object> imap_listenerMap = new HashMap<>();
         
-        imap_listenerMap.put("enabled", (Object)enabledCheckBox.isSelected());
-        imap_listenerMap.put("authorized_froms", (Object)authorizedfromsTextField.getText());
-        imap_listenerMap.put("user", (Object)userTextField.getText());
-        imap_listenerMap.put("password", (Object)passwordTextField.getText());
-        imap_listenerMap.put("host", (Object)hostTextField.getText());
-        imap_listenerMap.put("port", (Object)port_imaglistenerSpinner.getValue());
-        imap_listenerMap.put("tls", (Object)tlsCheckBox.isSelected());
+        imap_listenerMap.put("enabled", enabledCheckBox.isSelected());
+        imap_listenerMap.put("authorized_froms", authorizedfromsTextField.getText());
+        imap_listenerMap.put("user", userTextField.getText());
+        imap_listenerMap.put("password", passwordTextField.getText());
+        imap_listenerMap.put("host", hostTextField.getText());
+        imap_listenerMap.put("port", port_imaglistenerSpinner.getValue());
+        imap_listenerMap.put("tls", tlsCheckBox.isSelected());
         if(tlsCheckBox.isSelected()) {
             HashMap<String, Object> tlsOptionsMap = new HashMap<>();
-            tlsOptionsMap.put("rejectUnauthorized", (Object)rejectunauthorizedCheckBox.isSelected());
-            imap_listenerMap.put("tlsOptions", (Object)tlsOptionsMap);
+            tlsOptionsMap.put("rejectUnauthorized", rejectunauthorizedCheckBox.isSelected());
+            imap_listenerMap.put("tlsOptions", tlsOptionsMap);
         }
         
         return imap_listenerMap;
+    }
+    
+    public void setMap_imap_listener(LinkedTreeMap<String, Object> imap_listenerMap) {
+        enabledCheckBox.setSelected((boolean)imap_listenerMap.get("enabled"));
+        authorizedfromsTextField.setText((String)imap_listenerMap.get("authorized_froms"));
+        userTextField.setText((String)imap_listenerMap.get("user"));
+        passwordTextField.setText((String)imap_listenerMap.get("password"));
+        hostTextField.setText((String)imap_listenerMap.get("host"));
+        port_imaglistenerSpinner.setValue(imap_listenerMap.get("port"));
+        tlsCheckBox.setSelected((boolean)(imap_listenerMap.get("tls")));
+        LinkedTreeMap<String, Object> tlsOptionsMap = (LinkedTreeMap<String, Object>)imap_listenerMap.get("tlsOptions");
+        rejectunauthorizedCheckBox.setSelected((boolean)tlsOptionsMap.get("rejectUnauthorized"));
     }
     
     public HashMap<String, Object> getMap_strategies() {
@@ -745,40 +941,82 @@ public class MainFrame extends javax.swing.JFrame {
         int nCount = strategiesTable.getRowCount();
         for(int i = 0; i < nCount; i ++) {
             HashMap<String, Object> itemMap = new HashMap<>();
-            itemMap.put("TRADING_LIMIT", (Object)strategiesTable.getValueAt(i, 1));
-            itemMap.put("PERIOD", (Object)strategiesTable.getValueAt(i, 2));
-            itemMap.put("BUY_LEVEL", (Object)strategiesTable.getValueAt(i, 3));
-            itemMap.put("GAIN", (Object)strategiesTable.getValueAt(i, 4));
-            itemMap.put("EMA1", (Object)strategiesTable.getValueAt(i, 5));
-            itemMap.put("EMA2", (Object)strategiesTable.getValueAt(i, 6));
-            itemMap.put("HIGH_BB", (Object)strategiesTable.getValueAt(i, 7));
-            itemMap.put("LOW_BB", (Object)strategiesTable.getValueAt(i, 8));
-            itemMap.put("STDV", (Object)strategiesTable.getValueAt(i, 9));
-            itemMap.put("SMAPERIOD", (Object)strategiesTable.getValueAt(i, 10));
-            itemMap.put("BUYLVL1", (Object)strategiesTable.getValueAt(i, 11));
-            itemMap.put("BUYLVL2", (Object)strategiesTable.getValueAt(i, 12));
-            itemMap.put("BUYLVL3", (Object)strategiesTable.getValueAt(i, 13));
-            itemMap.put("SELLLVL1", (Object)strategiesTable.getValueAt(i, 14));
-            itemMap.put("SELLLVL2", (Object)strategiesTable.getValueAt(i, 15));
-            itemMap.put("SELLLVL3", (Object)strategiesTable.getValueAt(i, 16));
-            itemMap.put("BUYLVL", (Object)strategiesTable.getValueAt(i, 17));
-            itemMap.put("SELLLVL", (Object)strategiesTable.getValueAt(i, 18));
-            itemMap.put("LASTPOINTS", (Object)strategiesTable.getValueAt(i, 19));
-            itemMap.put("AVGPOINTS", (Object)strategiesTable.getValueAt(i, 20));
-            itemMap.put("AVGMINIMUM", (Object)strategiesTable.getValueAt(i, 21));
-            itemMap.put("PP_BUY", (Object)strategiesTable.getValueAt(i, 22));
-            itemMap.put("PP_SELL", (Object)strategiesTable.getValueAt(i, 23));
-            itemMap.put("PANIC_SELL", (Object)strategiesTable.getValueAt(i, 24));
-            itemMap.put("DOUBLE_UP", (Object)strategiesTable.getValueAt(i, 25));
-            itemMap.put("STOP_LIMIT", (Object)strategiesTable.getValueAt(i, 26));
-            itemMap.put("BUY_ENABLED", (Object)strategiesTable.getValueAt(i, 27));
-            itemMap.put("MIN_VOLUME_TO_BUY", (Object)strategiesTable.getValueAt(i, 28));
-            itemMap.put("MIN_VOLUME_TO_SELL", (Object)strategiesTable.getValueAt(i, 29));
+            itemMap.put("TRADING_LIMIT", strategiesTable.getValueAt(i, 1));
+            itemMap.put("PERIOD", strategiesTable.getValueAt(i, 2));
+            itemMap.put("BUY_LEVEL", strategiesTable.getValueAt(i, 3));
+            itemMap.put("GAIN", strategiesTable.getValueAt(i, 4));
+            itemMap.put("EMA1", strategiesTable.getValueAt(i, 5));
+            itemMap.put("EMA2", strategiesTable.getValueAt(i, 6));
+            itemMap.put("HIGH_BB", strategiesTable.getValueAt(i, 7));
+            itemMap.put("LOW_BB", strategiesTable.getValueAt(i, 8));
+            itemMap.put("STDV", strategiesTable.getValueAt(i, 9));
+            itemMap.put("SMAPERIOD", strategiesTable.getValueAt(i, 10));
+            itemMap.put("BUYLVL1", strategiesTable.getValueAt(i, 11));
+            itemMap.put("BUYLVL2", strategiesTable.getValueAt(i, 12));
+            itemMap.put("BUYLVL3", strategiesTable.getValueAt(i, 13));
+            itemMap.put("SELLLVL1", strategiesTable.getValueAt(i, 14));
+            itemMap.put("SELLLVL2", strategiesTable.getValueAt(i, 15));
+            itemMap.put("SELLLVL3", strategiesTable.getValueAt(i, 16));
+            itemMap.put("BUYLVL", strategiesTable.getValueAt(i, 17));
+            itemMap.put("SELLLVL", strategiesTable.getValueAt(i, 18));
+            itemMap.put("LASTPOINTS", strategiesTable.getValueAt(i, 19));
+            itemMap.put("AVGPOINTS", strategiesTable.getValueAt(i, 20));
+            itemMap.put("AVGMINIMUM", strategiesTable.getValueAt(i, 21));
+            itemMap.put("PP_BUY", strategiesTable.getValueAt(i, 22));
+            itemMap.put("PP_SELL", strategiesTable.getValueAt(i, 23));
+            itemMap.put("PANIC_SELL", strategiesTable.getValueAt(i, 24));
+            itemMap.put("DOUBLE_UP", strategiesTable.getValueAt(i, 25));
+            itemMap.put("STOP_LIMIT", strategiesTable.getValueAt(i, 26));
+            itemMap.put("BUY_ENABLED", strategiesTable.getValueAt(i, 27));
+            itemMap.put("MIN_VOLUME_TO_BUY", strategiesTable.getValueAt(i, 28));
+            itemMap.put("MIN_VOLUME_TO_SELL", strategiesTable.getValueAt(i, 29));
             String strName = (String)strategiesTable.getValueAt(i, 0);
-            strategiesMap.put(strName, (Object)itemMap);
+            strategiesMap.put(strName, itemMap);
         }
         
         return strategiesMap;
+    }
+    
+    public void setMap_strategies(LinkedTreeMap<String, Object> strategiesMap) {
+        strategiesTable.removeAll();
+        int i = 0;
+        Set<String> names = strategiesMap.keySet();
+        DefaultTableModel model = (DefaultTableModel)strategiesTable.getModel();
+        model.setRowCount(names.size());
+        for (String name : names) {
+            strategiesTable.setValueAt(name, i, 0);
+            LinkedTreeMap<String, Object> rowMap = (LinkedTreeMap<String, Object>)strategiesMap.get(name);
+            strategiesTable.setValueAt(rowMap.get("TRADING_LIMIT"), i, 1);
+            strategiesTable.setValueAt(rowMap.get("PERIOD"), i, 2);
+            strategiesTable.setValueAt(rowMap.get("BUY_LEVEL"), i, 3);
+            strategiesTable.setValueAt(rowMap.get("GAIN"), i, 4);
+            strategiesTable.setValueAt(rowMap.get("EMA1"), i, 5);
+            strategiesTable.setValueAt(rowMap.get("EMA2"), i, 6);
+            strategiesTable.setValueAt(rowMap.get("HIGH_BB"), i, 7);
+            strategiesTable.setValueAt(rowMap.get("LOW_BB"), i, 8);
+            strategiesTable.setValueAt(rowMap.get("STDV"), i, 9);
+            strategiesTable.setValueAt(rowMap.get("SMAPERIOD"), i, 10);
+            strategiesTable.setValueAt(rowMap.get("BUYLVL1"), i, 11);
+            strategiesTable.setValueAt(rowMap.get("BUYLVL2"), i, 12);
+            strategiesTable.setValueAt(rowMap.get("BUYLVL3"), i, 13);
+            strategiesTable.setValueAt(rowMap.get("SELLLVL1"), i, 14);
+            strategiesTable.setValueAt(rowMap.get("SELLLVL2"), i, 15);
+            strategiesTable.setValueAt(rowMap.get("SELLLVL3"), i, 16);
+            strategiesTable.setValueAt(rowMap.get("BUYLVL"), i, 17);
+            strategiesTable.setValueAt(rowMap.get("SELLLVL"), i, 18);
+            strategiesTable.setValueAt(rowMap.get("LASTPOINTS"), i, 19);
+            strategiesTable.setValueAt(rowMap.get("AVGPOINTS"), i, 20);
+            strategiesTable.setValueAt(rowMap.get("AVGMINIMUM"), i, 21);
+            strategiesTable.setValueAt(rowMap.get("PP_BUY"), i, 22);
+            strategiesTable.setValueAt(rowMap.get("PP_SELL"), i, 23);
+            strategiesTable.setValueAt(rowMap.get("PANIC_SELL"), i, 24);
+            strategiesTable.setValueAt(rowMap.get("DOUBLE_UP"), i, 25);
+            strategiesTable.setValueAt(rowMap.get("STOP_LIMIT"), i, 26);
+            strategiesTable.setValueAt(rowMap.get("BUY_ENABLED"), i, 27);
+            strategiesTable.setValueAt(rowMap.get("MIN_VOLUME_TO_BUY"), i, 28);
+            strategiesTable.setValueAt(rowMap.get("MIN_VOLUME_TO_SELL"), i, 29);
+            i ++;
+        }
     }
     
     public HashMap<String, Object> getMap_optioanal() {
@@ -795,17 +1033,23 @@ public class MainFrame extends javax.swing.JFrame {
         }
         
         toOverrideMap.put("BOUGHT_PRICE", bought_price);
-        optionalMap.put("toOverride", (Object)toOverrideMap);
+        optionalMap.put("toOverride", toOverrideMap);
         
         return optionalMap;
     }
     
+    public void setMap_optionals(LinkedTreeMap<String, Object> optionalsMap) {
+        LinkedTreeMap<String, Object> toOverrideMap = (LinkedTreeMap<String, Object>)optionalsMap.get("toOverride");
+        boughtpriceTextField.setText(String.valueOf(toOverrideMap.get("BOUGHT_PRICE")));
+    }
+    
     ////////////////////////////////////////////////////////////////////////////////
     
-    public void readJSON(String jsonString) {
+    private HashMap<String, Object> readJSON(String jsonString) {
         Gson gsonObj = new Gson();
         java.lang.reflect.Type type = new TypeToken<HashMap<String, Object>>(){}.getType();
         HashMap<String, Object> hashMap = gsonObj.fromJson(jsonString, type);
+        return hashMap;
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
