@@ -9,7 +9,11 @@
  * @author developer
  */
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.util.*;
+import javax.swing.JTree;
+import jdk.nashorn.internal.parser.JSONParser;
 
 public class MainFrame extends javax.swing.JFrame {
 
@@ -32,11 +36,11 @@ public class MainFrame extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        portTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        clientportTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         hostnameTextField = new javax.swing.JTextField();
+        port_wsSpinner = new javax.swing.JSpinner();
+        clientportSpinner = new javax.swing.JSpinner();
         jPanel3 = new javax.swing.JPanel();
         debugCheckBox = new javax.swing.JCheckBox();
         botdelaySpinner = new javax.swing.JSpinner();
@@ -64,8 +68,8 @@ public class MainFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         exchangesTable = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        pairsTree = new javax.swing.JTree();
         jPanel6 = new javax.swing.JPanel();
         enabledCheckBox = new javax.swing.JCheckBox();
         jLabel12 = new javax.swing.JLabel();
@@ -77,7 +81,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         hostTextField = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        portSpinner = new javax.swing.JSpinner();
+        port_imaglistenerSpinner = new javax.swing.JSpinner();
         tlsCheckBox = new javax.swing.JCheckBox();
         rejectunauthorizedCheckBox = new javax.swing.JCheckBox();
         jPanel7 = new javax.swing.JPanel();
@@ -93,12 +97,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel1.setText("port:");
 
-        portTextField.setText("5000");
-        portTextField.setName(""); // NOI18N
-
         jLabel2.setText("clientport:");
-
-        clientportTextField.setText("3000");
 
         jLabel3.setText("hostname:");
 
@@ -116,9 +115,9 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addGap(60, 60, 60)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(portTextField)
-                    .addComponent(clientportTextField)
-                    .addComponent(hostnameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))
+                    .addComponent(hostnameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                    .addComponent(port_wsSpinner)
+                    .addComponent(clientportSpinner))
                 .addContainerGap(407, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -127,11 +126,11 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(64, 64, 64)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(portTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(port_wsSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(clientportTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(clientportSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -306,45 +305,80 @@ public class MainFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("exchanges", jPanel4);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"bittrex", "bb", "bb", "bb"},
-                {"poloniex", "bb", "bb", "bb"},
-                {"kraken", "bb", "bb", "bb"},
-                {"cryptopia", "bb", "bb", "bb"}
-            },
-            new String [] {
-                "Name", "BTC-LTC", "BTC-ETH", "BTC-XRP"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, true, true, true
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(jTable2);
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("pairs");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("bittrex");
+        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("BTC-LTC");
+        javax.swing.tree.DefaultMutableTreeNode treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("strategy:bb");
+        treeNode3.add(treeNode4);
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("BTC-ETH");
+        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("strategy:bb");
+        treeNode3.add(treeNode4);
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("BTC-XRP");
+        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("strategy:bb");
+        treeNode3.add(treeNode4);
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("poloniex");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("BTC-LTC");
+        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("strategy:bb");
+        treeNode3.add(treeNode4);
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("BTC-ETH");
+        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("strategy:bb");
+        treeNode3.add(treeNode4);
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("BTC-XRP");
+        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("strategy:bb");
+        treeNode3.add(treeNode4);
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("kraken");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("BTC-LTC");
+        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("strategy:bb");
+        treeNode3.add(treeNode4);
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("BTC-ETH");
+        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("strategy:bb");
+        treeNode3.add(treeNode4);
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("BTC-XRP");
+        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("strategy:bb");
+        treeNode3.add(treeNode4);
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("cryptopia");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("BTC-LTC");
+        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("strategy:bb");
+        treeNode3.add(treeNode4);
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("BTC-ETH");
+        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("strategy:bb");
+        treeNode3.add(treeNode4);
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("BTC-XRP");
+        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("strategy:bb");
+        treeNode3.add(treeNode4);
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        pairsTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        pairsTree.setEditable(true);
+        pairsTree.setRootVisible(false);
+        jScrollPane4.setViewportView(pairsTree);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 22, Short.MAX_VALUE))
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("pairs", jPanel5);
@@ -388,7 +422,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(enabledCheckBox)
-                    .addComponent(portSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(port_imaglistenerSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanel6Layout.createSequentialGroup()
                             .addComponent(tlsCheckBox)
@@ -424,7 +458,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(portSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(port_imaglistenerSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tlsCheckBox)
@@ -565,16 +599,201 @@ public class MainFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainFrame().setVisible(true);
+                MainFrame mainFrame = new MainFrame();
+                mainFrame.setVisible(true);
+                System.out.println(mainFrame.getJsonString());
             }
         });
     }
 
+    public String getJsonString() {
+        Gson gsonObj = new Gson();
+        String jsonString = gsonObj.toJson(getMap());
+        return jsonString;
+    }
+    
+    public HashMap<String, Object> getMap() {
+        HashMap<String, Object> resultMap = new HashMap<>();
+        
+        resultMap.put("ws", getMap_ws());
+        resultMap.put("bot", getMap_bot());
+        resultMap.put("exchanges", getMap_exchanges());
+        resultMap.put("pairs", getMap_pairs());
+        resultMap.put("imap_listener", getMap_imap_listener());
+        resultMap.put("strategies", getMap_strategies());
+        resultMap.put("optionals", getMap_optioanal());
+        
+        return resultMap;
+    }
+    
+    public HashMap<String, Object> getMap_ws() {
+        HashMap<String, Object> wsMap = new HashMap<>();
+        
+        wsMap.put("port", port_wsSpinner.getValue());
+        wsMap.put("clientport", clientportSpinner.getValue());
+        wsMap.put("hostname", hostnameTextField.getText());
+        
+        return wsMap;
+    }
+    
+    public HashMap<String, Object> getMap_bot() {
+        HashMap<String, Object> botMap = new HashMap<>();
+        
+        botMap.put("debug", debugCheckBox.isSelected());
+        botMap.put("BOT_DELAY", botdelaySpinner.getValue());
+        botMap.put("interval_ticker_update", intervaltickerupdateSpinner.getValue());
+        botMap.put("period_storage_ticker", periodstoragetickerSpinner.getValue());
+        botMap.put("timeout_buy", timeoutbuySpinner.getValue());
+        botMap.put("timeout_sell", timeoutsellSpinner.getValue());
+        botMap.put("TV_GAIN", tvgainSpinner.getValue());
+        botMap.put("TV_TRADING_LIMIT_BUY", tvtradinglimitbuySpinner.getValue());
+        botMap.put("TV_PYRAMID", tvpyramidCheckBox.isSelected());
+        botMap.put("TV_TRADING_LIMIT_SELL", tvtradinglimitsellSpinner.getValue());
+        botMap.put("TV_PROTECTION", tvprotectionCheckBox.isSelected());
+        botMap.put("RETRY_TV_ORDER", retrytvorderCheckBox.isSelected());
+        botMap.put("VERBOSE", verboseCheckBox.isSelected());
+        botMap.put("WATCH_MODE", watchmodeCheckBox.isSelected());
+        
+        return botMap;
+    }
+    
+    public HashMap<String, Object> getMap_exchanges() {
+        HashMap<String, Object> exchangesMap = new HashMap<>();
+        
+        HashMap<String, Object> bittrexMap = new HashMap<>();
+        bittrexMap.put("key", exchangesTable.getValueAt(0, 1));
+        bittrexMap.put("secret", exchangesTable.getValueAt(0, 2));
+        exchangesMap.put("bittrex", bittrexMap);
+        
+        HashMap<String, Object> cryptopiaMap = new HashMap<>();
+        cryptopiaMap.put("key", exchangesTable.getValueAt(0, 1));
+        cryptopiaMap.put("secret", exchangesTable.getValueAt(0, 2));
+        exchangesMap.put("cryptopia", cryptopiaMap);
+        
+        HashMap<String, Object> krakenMap = new HashMap<>();
+        krakenMap.put("key", exchangesTable.getValueAt(0, 1));
+        krakenMap.put("secret", exchangesTable.getValueAt(0, 2));
+        exchangesMap.put("kraken", krakenMap);
+        
+        HashMap<String, Object> poloniexMap = new HashMap<>();
+        poloniexMap.put("key", exchangesTable.getValueAt(0, 1));
+        poloniexMap.put("secret", exchangesTable.getValueAt(0, 2));
+        exchangesMap.put("poloniex", poloniexMap);
+        
+        return exchangesMap;
+    }
+    
+    public HashMap<String, Object> getMap_pairs() {
+        javax.swing.tree.TreeNode root = (javax.swing.tree.TreeNode)pairsTree.getModel().getRoot();
+        HashMap<String, Object> pairsMap = parseMap(root);
+        return pairsMap;
+    }
+    
+    private HashMap<String, Object> parseMap(javax.swing.tree.TreeNode node) {
+        HashMap<String, Object> nodeMap = new HashMap<>();
+        
+        int nCount = node.getChildCount();
+        
+        for (int i = 0; i < nCount ;i ++) {
+            javax.swing.tree.TreeNode child = node.getChildAt(i);
+            if (child.isLeaf()) {
+                String strLeaf = node.toString();
+                int seperator = strLeaf.indexOf(':');
+                if (seperator == -1) {
+                    continue;
+                }
+                else {
+                    String strKey = strLeaf.substring(0, seperator).trim();
+                    String strValue = strLeaf.substring(seperator);
+                    nodeMap.put(strKey, strValue);
+                }
+            }
+            else {
+                String strKey = child.toString();
+                HashMap<String, Object> mapValue = parseMap(child);
+                nodeMap.put(strKey, mapValue);
+            }
+        }
+        
+        return nodeMap;
+    }
+    
+    public HashMap<String, Object> getMap_imap_listener() {
+        HashMap<String, Object> imap_listenerMap = new HashMap<>();
+        
+        imap_listenerMap.put("enabled", enabledCheckBox.isSelected());
+        imap_listenerMap.put("authorized_froms", authorizedfromsTextField.getText());
+        imap_listenerMap.put("user", userTextField.getText());
+        imap_listenerMap.put("password", passwordTextField.getText());
+        imap_listenerMap.put("host", hostTextField.getText());
+        imap_listenerMap.put("port", port_imaglistenerSpinner.getValue());
+        imap_listenerMap.put("tls", tlsCheckBox.isSelected());
+        if(tlsCheckBox.isSelected()) {
+            HashMap<String, Object> tlsOptionsMap = new HashMap<>();
+            tlsOptionsMap.put("rejectUnauthorized", rejectunauthorizedCheckBox.isSelected());
+            imap_listenerMap.put("tlsOptions", tlsOptionsMap);
+        }
+        
+        return imap_listenerMap;
+    }
+    
+    public HashMap<String, Object> getMap_strategies() {
+        HashMap<String, Object> strategiesMap = new HashMap<>();
+        
+        int nCount = strategiesTable.getRowCount();
+        for(int i = 0; i < nCount; i ++) {
+            HashMap<String, Object> itemMap = new HashMap<>();
+            itemMap.put("TRADING_LIMIT", strategiesTable.getValueAt(i, 1));
+            itemMap.put("PERIOD", strategiesTable.getValueAt(i, 2));
+            itemMap.put("BUY_LEVEL", strategiesTable.getValueAt(i, 3));
+            itemMap.put("GAIN", strategiesTable.getValueAt(i, 4));
+            itemMap.put("EMA1", strategiesTable.getValueAt(i, 5));
+            itemMap.put("EMA2", strategiesTable.getValueAt(i, 6));
+            itemMap.put("HIGH_BB", strategiesTable.getValueAt(i, 7));
+            itemMap.put("LOW_BB", strategiesTable.getValueAt(i, 8));
+            itemMap.put("STDV", strategiesTable.getValueAt(i, 9));
+            itemMap.put("SMAPERIOD", strategiesTable.getValueAt(i, 10));
+            itemMap.put("BUYLVL1", strategiesTable.getValueAt(i, 11));
+            itemMap.put("BUYLVL2", strategiesTable.getValueAt(i, 12));
+            itemMap.put("BUYLVL3", strategiesTable.getValueAt(i, 13));
+            itemMap.put("SELLLVL1", strategiesTable.getValueAt(i, 14));
+            itemMap.put("SELLLVL2", strategiesTable.getValueAt(i, 15));
+            itemMap.put("SELLLVL3", strategiesTable.getValueAt(i, 16));
+            itemMap.put("BUYLVL", strategiesTable.getValueAt(i, 17));
+            itemMap.put("SELLLVL", strategiesTable.getValueAt(i, 18));
+            itemMap.put("LASTPOINTS", strategiesTable.getValueAt(i, 19));
+            itemMap.put("AVGPOINTS", strategiesTable.getValueAt(i, 20));
+            itemMap.put("AVGMINIMUM", strategiesTable.getValueAt(i, 21));
+            itemMap.put("PP_BUY", strategiesTable.getValueAt(i, 22));
+            itemMap.put("PP_SELL", strategiesTable.getValueAt(i, 23));
+            itemMap.put("PANIC_SELL", strategiesTable.getValueAt(i, 24));
+            itemMap.put("DOUBLE_UP", strategiesTable.getValueAt(i, 25));
+            itemMap.put("STOP_LIMIT", strategiesTable.getValueAt(i, 26));
+            itemMap.put("BUY_ENABLED", strategiesTable.getValueAt(i, 27));
+            itemMap.put("MIN_VOLUME_TO_BUY", strategiesTable.getValueAt(i, 28));
+            itemMap.put("MIN_VOLUME_TO_SELL", strategiesTable.getValueAt(i, 29));
+            String strName = (String)strategiesTable.getValueAt(i, 0);
+            strategiesMap.put(strName, itemMap);
+        }
+        
+        return strategiesMap;
+    }
+    
+    public HashMap<String, Object> getMap_optioanal() {
+        HashMap<String, Object> optionalMap = new HashMap<>();
+        
+        HashMap<String, Object> toOverrideMap = new HashMap<>();
+        toOverrideMap.put("BOUGHT_PRICE", Integer.parseInt(boughtpriceTextField.getText()));
+        optionalMap.put("toOverride", (Object)toOverrideMap);
+        
+        return optionalMap;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField authorizedfromsTextField;
     private javax.swing.JSpinner botdelaySpinner;
     private javax.swing.JTextField boughtpriceTextField;
-    private javax.swing.JTextField clientportTextField;
+    private javax.swing.JSpinner clientportSpinner;
     private javax.swing.JCheckBox debugCheckBox;
     private javax.swing.JCheckBox enabledCheckBox;
     private javax.swing.JTable exchangesTable;
@@ -606,14 +825,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTree pairsTree;
     private javax.swing.JTextField passwordTextField;
     private javax.swing.JSpinner periodstoragetickerSpinner;
-    private javax.swing.JSpinner portSpinner;
-    private javax.swing.JTextField portTextField;
+    private javax.swing.JSpinner port_imaglistenerSpinner;
+    private javax.swing.JSpinner port_wsSpinner;
     private javax.swing.JCheckBox rejectunauthorizedCheckBox;
     private javax.swing.JCheckBox retrytvorderCheckBox;
     private javax.swing.JTable strategiesTable;
@@ -629,6 +848,4 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox verboseCheckBox;
     private javax.swing.JCheckBox watchmodeCheckBox;
     // End of variables declaration//GEN-END:variables
-
-    private Map<String, Object> resultMap;
 }
