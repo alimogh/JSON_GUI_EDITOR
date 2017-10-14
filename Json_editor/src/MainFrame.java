@@ -29,6 +29,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.MutableTreeNode;
+import javax.swing.tree.TreeSelectionModel;
 import jdk.nashorn.internal.parser.JSONParser;
 
 public class MainFrame extends javax.swing.JFrame {
@@ -86,6 +88,9 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         pairsTree = new javax.swing.JTree();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         enabledCheckBox = new javax.swing.JCheckBox();
         jLabel12 = new javax.swing.JLabel();
@@ -391,20 +396,54 @@ public class MainFrame extends javax.swing.JFrame {
         pairsTree.setRootVisible(false);
         jScrollPane4.setViewportView(pairsTree);
 
+        jButton2.setText("Add Child");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Add Next");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Remove");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton4)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 39, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("pairs", jPanel5);
@@ -614,6 +653,50 @@ public class MainFrame extends javax.swing.JFrame {
         saveFile();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode)pairsTree.getLastSelectedPathComponent();
+        node.add(new DefaultMutableTreeNode(""));
+        
+        DefaultTreeModel model = (DefaultTreeModel)pairsTree.getModel();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode)model.getRoot();
+        model.reload(root);
+        expandPairsTree();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode)pairsTree.getLastSelectedPathComponent();
+        DefaultMutableTreeNode parent = (DefaultMutableTreeNode)node.getParent();
+        parent.add(new DefaultMutableTreeNode(""));
+        
+        DefaultTreeModel model = (DefaultTreeModel)pairsTree.getModel();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode)model.getRoot();
+        model.reload(root);
+        expandPairsTree();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode)pairsTree.getLastSelectedPathComponent();
+        node.removeFromParent();
+        
+        DefaultTreeModel model = (DefaultTreeModel)pairsTree.getModel();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode)model.getRoot();
+        model.reload(root);
+        expandPairsTree();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void expandPairsTree() {
+        expandAllNodes(pairsTree, 0, pairsTree.getRowCount());
+    }
+    
+    private void expandAllNodes(JTree tree, int startingIndex, int rowCount){
+        for(int i=startingIndex;i<rowCount;++i){
+            tree.expandRow(i);
+        }
+
+        if(tree.getRowCount()!=rowCount){
+            expandAllNodes(tree, rowCount, tree.getRowCount());
+        }
+    }    
     /**
      * @param args the command line arguments
      */
@@ -884,8 +967,7 @@ public class MainFrame extends javax.swing.JFrame {
             root.add(childNode);
         }
         model.reload(root);
-        pairsTree.setVisible(false);
-        pairsTree.setVisible(true);
+        expandPairsTree();
     }
     
     public DefaultMutableTreeNode parseNode(LinkedTreeMap<String, Object> map, String label) {
@@ -1093,6 +1175,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField hostnameTextField;
     private javax.swing.JSpinner intervaltickerupdateSpinner;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
