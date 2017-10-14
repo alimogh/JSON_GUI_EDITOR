@@ -117,7 +117,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JSON Editor");
-        setResizable(false);
 
         jLabel1.setText("port:");
 
@@ -232,7 +231,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addGap(39, 39, 39)
                         .addComponent(tvgainSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addGap(110, 110, 110)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tvprotectionCheckBox)
                     .addComponent(retrytvorderCheckBox)
@@ -240,7 +239,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(debugCheckBox)
                     .addComponent(tvpyramidCheckBox)
                     .addComponent(verboseCheckBox))
-                .addGap(139, 139, 139))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -635,15 +634,14 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(73, 73, 73))
+                .addGap(64, 64, 64))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+                .addGap(19, 19, 19)
+                .addComponent(jButton1))
         );
 
         jTabbedPane1.getAccessibleContext().setAccessibleName("tab1");
@@ -1016,7 +1014,7 @@ public class MainFrame extends javax.swing.JFrame {
                 }
                 else {
                     String strKey = strLeaf.substring(0, seperator).trim();
-                    String strValue = strLeaf.substring(seperator);
+                    String strValue = strLeaf.substring(seperator + 1);
                     nodeMap.put(strKey, strValue);
                 }
             }
