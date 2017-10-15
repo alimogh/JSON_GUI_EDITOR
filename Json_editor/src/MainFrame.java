@@ -13,13 +13,16 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
+import java.awt.event.KeyEvent;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -53,7 +56,8 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        osGroup = new javax.swing.ButtonGroup();
+        mainTabbedPane = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -113,7 +117,18 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         boughtpriceTextField = new javax.swing.JTextField();
+        jPanel8 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        shellTextArea = new javax.swing.JTextArea();
+        commandTextField = new javax.swing.JTextField();
+        goButton = new javax.swing.JButton();
+        windowsRadioButton = new javax.swing.JRadioButton();
+        linuxRadioButton = new javax.swing.JRadioButton();
+        macRadioButton = new javax.swing.JRadioButton();
+        armRadioButton = new javax.swing.JRadioButton();
+        stopButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JSON Editor");
@@ -141,7 +156,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(hostnameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
                     .addComponent(port_wsSpinner)
                     .addComponent(clientportSpinner))
-                .addContainerGap(441, Short.MAX_VALUE))
+                .addContainerGap(455, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +176,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(239, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("ws", jPanel2);
+        mainTabbedPane.addTab("ws", jPanel2);
 
         debugCheckBox.setText("debug");
 
@@ -239,7 +254,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(debugCheckBox)
                     .addComponent(tvpyramidCheckBox)
                     .addComponent(verboseCheckBox))
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,7 +300,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(88, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("bot", jPanel3);
+        mainTabbedPane.addTab("bot", jPanel3);
 
         exchangesTable.setAutoCreateRowSorter(true);
         exchangesTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -323,7 +338,7 @@ public class MainFrame extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -333,7 +348,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("exchanges", jPanel4);
+        mainTabbedPane.addTab("exchanges", jPanel4);
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("pairs");
         javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("bittrex");
@@ -425,7 +440,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jButton2)
                         .addGap(27, 27, 27)
@@ -447,7 +462,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(6, 6, 6))
         );
 
-        jTabbedPane1.addTab("pairs", jPanel5);
+        mainTabbedPane.addTab("pairs", jPanel5);
 
         enabledCheckBox.setText("enabled");
 
@@ -498,7 +513,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(userTextField, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(passwordTextField, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(hostTextField, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(325, Short.MAX_VALUE))
+                .addContainerGap(339, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -532,7 +547,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(101, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("imag_listener", jPanel6);
+        mainTabbedPane.addTab("imag_listener", jPanel6);
 
         jScrollPane3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -581,7 +596,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -590,7 +605,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("strategies", jPanel7);
+        mainTabbedPane.addTab("strategies", jPanel7);
 
         jLabel17.setText("BOUGHT_PRICE:");
 
@@ -605,7 +620,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jLabel17)
                 .addGap(45, 45, 45)
                 .addComponent(boughtpriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(406, Short.MAX_VALUE))
+                .addContainerGap(420, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -617,7 +632,118 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(327, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("optionals", jPanel1);
+        mainTabbedPane.addTab("optionals", jPanel1);
+
+        shellTextArea.setEditable(false);
+        shellTextArea.setColumns(20);
+        shellTextArea.setRows(5);
+        shellTextArea.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                shellTextAreaKeyReleased(evt);
+            }
+        });
+        jScrollPane2.setViewportView(shellTextArea);
+
+        commandTextField.setText("ping localhost");
+        commandTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                commandTextFieldKeyReleased(evt);
+            }
+        });
+
+        goButton.setText("Go");
+        goButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goButtonActionPerformed(evt);
+            }
+        });
+
+        osGroup.add(windowsRadioButton);
+        windowsRadioButton.setText("Windows");
+        windowsRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                windowsRadioButtonActionPerformed(evt);
+            }
+        });
+
+        osGroup.add(linuxRadioButton);
+        linuxRadioButton.setText("Linux");
+        linuxRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                linuxRadioButtonActionPerformed(evt);
+            }
+        });
+
+        osGroup.add(macRadioButton);
+        macRadioButton.setText("Mac");
+        macRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                macRadioButtonActionPerformed(evt);
+            }
+        });
+
+        osGroup.add(armRadioButton);
+        armRadioButton.setText("ARM");
+        armRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                armRadioButtonActionPerformed(evt);
+            }
+        });
+
+        stopButton.setText("Stop");
+        stopButton.setEnabled(false);
+        stopButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stopButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(commandTextField)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(windowsRadioButton)
+                    .addComponent(linuxRadioButton)
+                    .addComponent(macRadioButton)
+                    .addComponent(armRadioButton)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(goButton, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(stopButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 20, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(windowsRadioButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(linuxRadioButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(macRadioButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(armRadioButton)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(commandTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(goButton)
+                    .addComponent(stopButton))
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+
+        mainTabbedPane.addTab("console", jPanel8);
 
         jButton1.setText("Save");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -626,26 +752,37 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setText("Run");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(mainTabbedPane)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton5)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addGap(48, 48, 48))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1)
+                .addComponent(mainTabbedPane)
                 .addGap(20, 20, 20)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton5))
                 .addGap(20, 20, 20))
         );
 
-        jTabbedPane1.getAccessibleContext().setAccessibleName("tab1");
+        mainTabbedPane.getAccessibleContext().setAccessibleName("tab1");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -687,6 +824,130 @@ public class MainFrame extends javax.swing.JFrame {
         expandPairsTree();
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        mainTabbedPane.setSelectedIndex(7);
+        String osname = System.getProperty("os.name").toLowerCase();
+        if(osname.startsWith("windows")) {
+            windowsRadioButton.doClick();
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    runCommand();
+                }
+            });
+            thread.start();
+        }
+        else if(osname.startsWith("linux")) {
+            linuxRadioButton.doClick();
+            runCommand();
+        }
+        else if(osname.startsWith("mac")) {
+            macRadioButton.doClick();
+            runCommand();
+        }
+        else if(osname.startsWith("arm")) {
+            armRadioButton.doClick();
+            runCommand();
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void windowsRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_windowsRadioButtonActionPerformed
+        commandTextField.setText("start app.exe");
+    }//GEN-LAST:event_windowsRadioButtonActionPerformed
+
+    private void linuxRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linuxRadioButtonActionPerformed
+        commandTextField.setText("start ./node-lin");
+    }//GEN-LAST:event_linuxRadioButtonActionPerformed
+
+    private void macRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_macRadioButtonActionPerformed
+        commandTextField.setText("start ./node-mac");
+    }//GEN-LAST:event_macRadioButtonActionPerformed
+
+    private void armRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_armRadioButtonActionPerformed
+        commandTextField.setText("start ./node-arm");
+    }//GEN-LAST:event_armRadioButtonActionPerformed
+
+    private void goButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goButtonActionPerformed
+        runCommand();
+    }//GEN-LAST:event_goButtonActionPerformed
+
+    private void commandTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_commandTextFieldKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            runCommand();
+        }
+    }//GEN-LAST:event_commandTextFieldKeyReleased
+
+    private void stopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopButtonActionPerformed
+        stopCommand();
+    }//GEN-LAST:event_stopButtonActionPerformed
+
+    private void shellTextAreaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_shellTextAreaKeyReleased
+        if((evt.getModifiers() == KeyEvent.CTRL_MASK) && evt.getKeyCode() == KeyEvent.VK_C) {
+            stopCommand();
+        }
+    }//GEN-LAST:event_shellTextAreaKeyReleased
+
+    private Process m_process = null;
+    private boolean m_bStopped = false;
+    
+    private void runCommand() {
+        try {
+            commandTextField.setEnabled(false);
+            goButton.setEnabled(false);
+            stopButton.setEnabled(true);
+            
+            String strCommand = commandTextField.getText();
+            shellTextArea.append(strCommand);
+            shellTextArea.requestFocus();
+            m_process = Runtime.getRuntime().exec(strCommand);
+            InputStream in = m_process.getInputStream();
+            
+            Timer timer = new Timer();
+            TimerTask timerTask = new TimerTask() {
+                @Override
+                public void run() {
+                    byte[] bytes = new byte[256];
+                    try {
+                        in.read(bytes);
+                        if(bytes.length != 0) {
+                            String strResult = new String(bytes);
+                            shellTextArea.append(strResult);
+                            shellTextArea.setCaretPosition(shellTextArea.getDocument().getLength());
+                        }
+                    } catch (IOException ex) {
+                        Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    if(!m_process.isAlive()) {
+                        if(m_bStopped) {
+                            shellTextArea.append("^C");
+                            m_bStopped = false;
+                        }
+                        shellTextArea.append("\n");
+                        shellTextArea.setCaretPosition(shellTextArea.getDocument().getLength());
+                        
+                        commandTextField.setText("");
+                        commandTextField.setEnabled(true);
+                        commandTextField.requestFocus();
+                        goButton.setEnabled(true);
+                        stopButton.setEnabled(false);
+                        this.cancel();
+                    }
+                }
+            };
+            timer.scheduleAtFixedRate(timerTask, 0, 100);
+        } catch (IOException ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void stopCommand() {
+        if(m_process != null)
+            if(m_process.isAlive()) {
+                m_process.destroy();
+                m_bStopped = true;
+            }
+    }
+    
     private void expandPairsTree() {
         expandAllNodes(pairsTree, 0, pairsTree.getRowCount());
     }
@@ -1180,13 +1441,16 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton armRadioButton;
     private javax.swing.JTextField authorizedfromsTextField;
     private javax.swing.JSpinner botdelaySpinner;
     private javax.swing.JTextField boughtpriceTextField;
     private javax.swing.JSpinner clientportSpinner;
+    private javax.swing.JTextField commandTextField;
     private javax.swing.JCheckBox debugCheckBox;
     private javax.swing.JCheckBox enabledCheckBox;
     private javax.swing.JTable exchangesTable;
+    private javax.swing.JButton goButton;
     private javax.swing.JTextField hostTextField;
     private javax.swing.JTextField hostnameTextField;
     private javax.swing.JSpinner intervaltickerupdateSpinner;
@@ -1194,6 +1458,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1218,10 +1483,15 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JRadioButton linuxRadioButton;
+    private javax.swing.JRadioButton macRadioButton;
+    private javax.swing.JTabbedPane mainTabbedPane;
+    private javax.swing.ButtonGroup osGroup;
     private javax.swing.JTree pairsTree;
     private javax.swing.JTextField passwordTextField;
     private javax.swing.JSpinner periodstoragetickerSpinner;
@@ -1229,6 +1499,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner port_wsSpinner;
     private javax.swing.JCheckBox rejectunauthorizedCheckBox;
     private javax.swing.JCheckBox retrytvorderCheckBox;
+    private javax.swing.JTextArea shellTextArea;
+    private javax.swing.JButton stopButton;
     private javax.swing.JTable strategiesTable;
     private javax.swing.JSpinner timeoutbuySpinner;
     private javax.swing.JSpinner timeoutsellSpinner;
@@ -1241,5 +1513,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField userTextField;
     private javax.swing.JCheckBox verboseCheckBox;
     private javax.swing.JCheckBox watchmodeCheckBox;
+    private javax.swing.JRadioButton windowsRadioButton;
     // End of variables declaration//GEN-END:variables
 }
